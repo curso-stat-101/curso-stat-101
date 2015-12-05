@@ -1,0 +1,63 @@
+---
+title: Sobre o curso
+url: {lib: libraries}
+highlighter: prettify
+hitheme: twitter-bootstrap
+framework: purus
+mode: selfcontained
+--- &lead
+
+---
+### Objetivos
+
+- Apresentar conceitos teóricos básicos de Probabilidade e Estatística
+- Desmistificar conceitos equivocados sobre a aleatoriedade e o uso da probabilidade na vida cotidiana
+- Discutir a importância da Estatística nas mais diversas áreas do conhecimento
+- Discutir o papel do estatístico na pesquisa e no mercado de trabalho
+
+### Programa
+
+Os conceitos teóricos abordados no curso serão divididos em três partes:
+
+- Análise explanatória de dados
+    - tipos de variáveis
+    - distribuição de frequências
+    - medidas resumo
+    - medidas de associação
+    - gráficos
+- Probabilidade
+    - introdução
+    - propriedades básicas
+    - independência e condicionalidade
+    - teorema de Bayes
+    - variáveis aleatórias discretas
+    - variáveis aleatórias contínuas
+    - distribuição Bernoulli e Binomial
+    - disbribuição Normal
+- Inferência Estatística
+    - introdução
+    - amostragem
+    - estimação pontual
+    - estimação intervalar
+    - teste de hipóteses
+
+### Pré-requisitos
+
+O curso tem como pré-requisitos apenas noções básicas de Matemática. Um resumo do que será usado pode ser encontrado aqui.
+
+### Avaliação
+
+**Método:**
+
+Listas de exercícios e provas.
+
+**Critérios:**
+
+A média final será calculada da seguinte forma:
+
+MF = 0.7xMP + 0.3xML,
+
+em que MF é a média final, MP é a média de provas e ML é a média de listas.
+
+
+

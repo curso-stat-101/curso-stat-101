@@ -1,0 +1,341 @@
+---
+title: Exercícios
+url: {lib: libraries}
+highlighter: prettify
+hitheme: twitter-bootstrap
+framework: purus
+mode: selfcontained
+---
+
+## Aula 01
+
+### R como calculadora
+
+1. Calcule o número de ouro no R ($\frac{1 + \sqrt{5}}{2}$).
+
+```{r, eval=FALSE}
+(1 + sqrt(5))/2
+(1 + 5^(1/2))/2
+```
+
+
+2. O que dá divisão de 1 por 0? E -1 por 0? 
+
+```{r}
+1/0
+-1/0
+```
+
+3. Quais as diferenças entre `NaN`, `NULL`, `NA` e `Inf`? 
+
+- `NaN` quer dizer "Not a number", ele aparece quando o resultado de uma expressão matemática não está definida.
+- `NA` significa "Not Available" e simboliza informação ausente/faltante. Usamos NA principalmente para representar dados faltantes em bancos de dados.
+- `NULL` significa vazio, "nada". Quando queremos que uma função não retorne nada, fazemos ela devolver `NULL`.
+- `Inf` representa o infinito, como no limite de funções matemáticas. Valores muito grandes (10e+308) e `1/0` retornam `Inf` (com I maiúsculo).
+
+4.a) Tente mentalmente calcular o que dá a conta `5 + 3 * 10 %/% 3 == 15` no R, sem rodar.
+```{r}
+14 == 15
+```
+
+4.b) Adicionando apenas parênteses, faça a expressão acima retornar o resultado contrário. 
+```{r}
+5 + (3 * 10) %/% 3 == 15
+```
+
+### Flow Controls
+
+1.a) O que acontece se eu rodar
+```{r, echo = F}
+.Random.seed <- 121321
+x <- 4
+```
+
+```{r, eval=FALSE}
+x <- 4
+if(x = 4) {
+  'isso aqui apareceu'
+}
+x
+```
+
+R: *Dará um erro de que coisas inesperadas ocorreram.*
+
+Você notou alguma coisa estranha? Como o R se comporta nesse caso?
+
+R: *A condição do if está utilizando o operador "=" em vez do "==".*
+
+1.b) Como você modificaria esse código para não dar erro e aparecer a frase 'isso aqui apareceu'?
+Obs: Existem duas formas de modificar o código que farão ele funcionar.
+
+R: Forma I
+```{r}
+if(x == 4) {
+  'isso aqui apareceu'
+}
+x
+```
+
+R: Forma II
+```{r}
+if(x <- 4) {
+  'isso aqui apareceu'
+}
+x
+```
+
+Esta segunda forma mostra uma das diferenças entre os operadores de atribuição `=` e `<-`.
+
+2. Escreva a frase (em uma linha)
+
+> 1 elefante(s) incomoda(m) muita gente  
+> 2 elefante(s) incomoda(m) incomoda(m) muito mais  
+> 3 elefante(s) incomoda(m) muita gente  
+> 4 elefante(s) incomoda(m) incomoda(m) incomoda(m) incomoda(m) muito mais  
+
+usando `for` ou `while`.
+
+R: Utilizando `for`:
+```{r}
+n <- 4 # número de repetições
+for(i in 1:n) {
+  parte1 <- paste(i, "elefante(s)")
+  
+  parte2 <- ""
+  for(j in 1:ifelse(i%%2 == 0, i, 1)) {
+    parte2 <- paste(parte2, "incomoda(m)")
+  }
+  
+  parte3 <- ifelse(i%%2 == 0, "muito mais", "muita gente")
+  
+  verso <- paste(parte1, parte2, parte3)
+  print(verso)
+}
+```
+
+### Funções
+
+1. Crie uma função que recebe um vetor de numeros e devolve a variancia.
+```{r}
+variancia <- function(x) {
+  media <- mean(x)
+  n <- length(x)
+  var <- sum((x - media)^2)/n
+  return(var)
+}
+```
+
+2. Calcule a variancia de `x <- 1:100` utilizando a sua funcao criada no item 1 e utilizando a funcao `var()` do R. Compare seus resultados. Eles coincidem? Por que?
+
+```{r}
+x <- 1:100
+variancia(x)
+var(x)
+```
+
+R: Elas não coincidem, pois a função `var()` do R calcula a variância amostral (dividido por n - 1 ) em vez da variância populacional (dividido por n).
+
+3. Altere sua função para que agora ela aceite que o usuário escolha entre qual tipo de variância ela quer calcular. Certifique-se que ela devolva a variância populacional caso o usuário não escolha explicitamente. 
+
+```{r}
+variancia <- function(x, populacional = TRUE) {
+  media <- mean(x)
+  n <- length(x)
+  if(!populacional) {
+    n <- n - 1
+  }
+  var <- sum((x - media)^2)/n
+  return(var)
+}
+
+# teste
+variancia(x)
+variancia(x, FALSE)
+```
+
+4. Construa uma função que recebe dois vetores numéricos de mesmo tamanho, `v1` e `v2`, e retorne a média ponderada de `v1` por `v2`. Calcule a média ponderada do vetor `v1 <- c(11, 9, 8, 7, 11, 6, 7, 9)` utilizando como pesos o vetor `v2 <- c(1, 2, 1, 2, 1, 2, 1, 2)`. BÔNUS: certifique que o usuario tenha passado vetores de tamanhos iguais e ambos numéricos. Retorne `NULL` caso uma dessas condições falhe.
+
+```{r}
+media_ponderada <- function(v1, v2) {
+  if(!is.numeric(v1) | !is.numeric(v2) | length(v1) != length(v2)) { # BÔNUS
+    NULL
+  } 
+  
+  sum(v1*v2/sum(v2))
+}
+
+v1 <- c(11, 9, 8, 7, 11, 6, 7, 9)
+v2 <- c(1, 2, 1, 2, 1, 2, 1, 2)
+media_ponderada(v1, v2)
+```
+
+
+5. Crie uma versão da função `paste()` que una palavras pulando linhas (`\\n`)
+
+```{r}
+meu_paste <- function(...) {
+  paste(..., sep = "\n")
+}
+
+# Teste
+teste <- meu_paste("print()", "não pula linha", "cat()", "pula linha")
+
+print(teste)
+cat(teste)
+```
+
+6. Crie uma função que recebe um vetor de characters e um vetor numérico de mesmo comprimento e imprima um texto com os nomes dessas variáveis, um símbolo de atribuição (`<-`), e os números, separando cada expressão pulando linhas. Por exemplo:
+
+```{r eval=FALSE, results='hide'}
+x <- letters[1:10]
+y <- 10:1
+
+imprime_coisas_legais(x, y)
+```
+
+```{r eval=FALSE, results='hide'}
+a <- 10
+b <- 9
+c <- 8
+d <- 7
+e <- 6
+f <- 5
+g <- 4
+h <- 3
+i <- 2
+j <- 1
+```
+
+R:
+
+```{r}
+imprime_coisas_legais <- function(x, y) {
+  for(i in seq_along(x)) {
+    print(paste(x[i], "<-", y[i]))
+  }
+}
+
+x <- letters[1:10]
+y <- 10:1
+
+imprime_coisas_legais(x, y)
+```
+
+## Aula 02
+
+### Estruturas de dados
+
+**1**. O senhor Adalberto é dono de uma loja e, utilizando o R, ele quer criar um cadastro de seus clientes. Para isso, ele está armazenando as informações em uma matriz da seguinte maneira:
+
+```{r, eval=FALSE}
+cadastro <- matrix(c(NA, NA, NA, NA), nrow = 100, ncol = 4, 
+                   dimnames = list(NULL, c("Nome", "Idade", "Cidade", "Telefone")))
+
+cadastro[1,] <- c("Maria das Dores", 56, 3025-111, "São Paulo")
+cadastro[2,] <- c("José Aníbal", 40, 3333-012, "Santos")
+cadastro[3,] <- c("Pedro Silva", 23, 3091-777, "São Paulo")
+# ...
+```
+
+a) O que faz o argumento `dimnames =`? O que significa o primeiro argumento da lista ser `NULL`?
+
+b) O que vai acontecer se o senhor Adalberto tentar tirar a média da idade dos seus clientes fazendo `mean(cadastro[,2])`? Como ele poderia calcular essa média sem mudar a estrutura do objeto `cadastro`?
+
+c) No lugar de `matrix`, qual seria a melhor estrutura para se utilizar neste caso? 
+
+**2**. Por que `0.1 == 0.3/3` retorna `FALSE`? 
+
+### Subsetting
+
+**1**. Considere o `data.frame` *diamonds* do R:
+
+
+a) Como você faria para permutar aleatoriamente as colunas?
+
+b) É possível permutar linhas e colunas simultaneamente em um passo? 
+
+c) Como ordenar as colunas do banco de dados em ordem alfabética?
+
+d) Crie uma nova variável no banco de dados que seja 1 se o preço (`price`) for menor 300 e 0 caso contrário.
+
+**2**. Considere o vetor abaixo:
+
+```{r}
+x1 <- 1:8
+```
+
+a) Por que a expressao `x1 == c(2,3)` não retorna as posições de `x1` que são iguais a 2 ou 3? 
+
+b) O que faz o operador `%in%`?
+
+### Leitura de dados
+
+1. Vamos supor que o seu diretório de trabalho seja `"Desktop/pasta1/pasta2"` e que dentro da *pasta2* você tenha uma *pasta3*. Sem mudar o diretório de trabalho, escreva um código, utilizando a função `read.table()`, para ler um arquivo que esteja
+
+a) dentro da *pasta3*.
+b) dentro da *pasta1*.
+
+2. É possível ler um arquivo em que o separador de valores (`sep`) é igual ao separador de casas deciamais (`dec`)?
+
+3. Qual a diferença entre as funções `read.csv()` e `read.csv2()`?
+
+### O operador *pipe*
+
+1. Reescreva a expressão abaixo utilizando o operador `%>%`.
+
+```{r}
+x <- 0.1
+
+library(ggplot2)
+
+qplot(x=sample(sqrt((log(seq(1, 10, x)) + 2)), 40, replace = T), geom="histogram")
+```
+
+2. Para que servem os operadores:
+
+a) `%<>%`?
+b) `%T>%`?
+c) `%$%`?
+
+### Gráficos com o pacote *graphics*
+
+**1**. Considere o gráfico abaixo:
+
+```{r}
+x <- seq(-3, 3, 0.01)
+y <- 1/x
+
+plot(x, y, type = "l")
+```
+
+
+a) Altere os limites do eixo x para que o gráfico seja visualizado apenas do -2 ao 2.
+
+b) Acrescente um título ao grafico.
+
+C) Acrescente uma reta vertical pontilhada no ponto x = 0.
+
+d) Acrescente uma legenda ao gráfico no "terceiro quadrante".
+
+**2**. Como construir dois gráficos na mesma janela?
+
+## Aula 03
+
+## Aula 04
+
+## Aula 05
+
+## Aula 06
+
+## Aula 07
+
+## Aula 08
+
+## Aula 09
+
+## Aula 10
+
+## Aula 11
+
+## Aula 12
+

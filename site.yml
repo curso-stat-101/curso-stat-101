@@ -1,0 +1,22 @@
+title: Curso R
+tagline: Do casual ao avançado
+logo: /assets/img/curso_r2.jpg
+owner: Athos, Daniel, Julio, William
+author:
+  email: julio.trecenti@gmail.com
+  github: curso-r
+  firstname: Curso
+  lastname: R
+
+social:
+  github: curso-r
+
+# Choose url: / for local development
+url: http://curso-r.github.io
+# url: /
+URL: http://github.com/ramnathv/poirot
+navigation:
+  - {item: Home, href: /index.html}
+  - {item: Sobre, href: /about.html}
+  - {item: Links Úteis, href: /links.html}
+  - {item: Exercícios, href: /exercicios.html}

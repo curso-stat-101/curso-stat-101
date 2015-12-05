@@ -1,0 +1,925 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Aula 08 - Aula dos alunos</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="" />
+  <meta name="author" content="julio.trecenti@gmail.com,curso-r,Curso,R">
+  <link rel="shortcut icon" href="/assets/img/curso_r2.jpg">
+  <link rel="alternate" type="application/rss+xml" href="">
+  <link href="../libraries/frameworks/purus/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="../libraries/frameworks/purus/css/bootstrap-responsive.min.css" rel="stylesheet" />
+  <link href="../libraries/frameworks/purus/css/main.css" rel="stylesheet" />
+  <link href="../libraries/highlighters/prettify/css/twitter-bootstrap.css" rel="stylesheet">
+  <!-- IE6-8 support of HTML5 elements -->
+  <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+  <link href='http://fonts.googleapis.com/css?family=Raleway:400,600,200,800' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Droid+Sans' rel='stylesheet' type='text/css'>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+  
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  
+    ga('create', 'UA-58167912-1', 'auto');
+    ga('send', 'pageview');
+  
+  </script>
+    <style>
+	  #sidebar .sidebar-nav .info h3 a:hover, a:hover { color: #01A9DB; }
+	  #sidebar .sidebar-nav #avatar img, #sidebar .sidebar-nav ul#links li.active a { border-color: #01A9DB; }
+	  #sidebar .sidebar-nav ul#links li a:hover { background: #01A9DB; }
+    p {text-align: justify;}
+  </style>
+  <link rel="stylesheet" href = "../assets/css/custom.css">
+<link rel="stylesheet" href = "../assets/css/ribbons.css">
+
+</head>
+<body>
+	<div class="container-fluid">
+		<div class="row-fluid">
+			<div id="sidebar" class="span2">
+			  <div class="sidebar-nav sidebar-nav-fixed">
+			    <a href="https://github.com/ramnathv/poirot">
+      <img style="position: absolute; top: 0; left: 100px; border: 0; height: 100px; z-index: 1;" 
+        alt="Fork me on GitHub" 
+        src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" >
+    </a>
+	  <div class="info">
+				    <p id="avatar"><a href="#"><img alt="Title" src="http://curso-r.github.io/assets/img/curso_r2.jpg " /></a></p>
+				    <h3><a href="/">Curso R </a></h3>
+					  <p class="description">Do casual ao avançado</p>
+					</div>
+					<ul id="links">
+			        <li><a href="http://curso-r.github.io/index.html">Home</a></li>
+        <li><a href="http://curso-r.github.io/about.html">Sobre</a></li>
+        <li><a href="http://curso-r.github.io/links.html">Links Úteis</a></li>
+        <li><a href="http://curso-r.github.io/exercicios.html">Exercícios</a></li>
+      
+        <li><a href="http://github.com/curso-r" id="Github-link">Github</a></li>
+                      
+			    </ul>
+				</div>
+			</div>
+						<div id="content" class='span10'>
+				<div id="post-wrapper">
+          <ol id="posts">
+            <li class="post">
+              <h3>
+                <a href="#">Aula 08 - Aula dos alunos</a>
+              </h3>
+              <span>2015-02-04</span><br/>
+               <a class='label label-success' href='posts/aula08.Rmd'>Source</a>
+              
+<p><a href="http://curso-r.github.io/slides/aula_08_apresentacao.html" target="_blank">Slides dessa aula</a></p>
+
+<h1>Parte 1: Um pouco mais de modelos</h1>
+
+<h2>Modelos de sobrevivência</h2>
+
+<p>A Análise de Sobrevivência compreende os estudos em que o interesse principal é avaliar o tempo até a ocorrência de um evento pré-determinado. Esses tempos, chamados de <em>tempos de falha</em>, podem, então, ser explicados por outras variáveis a partir de modelos de regressão paramétricos ou semi-paramétricos. Uma característica fundamental desse tipo de estudo é a presença de censura, definida como a observação parcial do tempo de falha.</p>
+
+<p>Para ilustrar as funções discutidas aqui, utilizaremos o banco de dados <code>ovarian</code>, do pacote <code>survival</code>. Este banco traz o tempo de sobrevivência (ou censura) de 26 mulheres com câncer de ovário e o objetivo do estudo foi comparar dois tratamentos distintos para essa doença. </p>
+
+<p>Nesse exemplo, o tempo de falha é o intervalo entre a entrada no estudo e a ocorrência do evento de interesse que, aqui, é a morte da paciente. A censura neste caso é causada pelo abandono do estudo ou pela não ocorrência do evento até o fim do acompanhamento, ou seja, os casos em que a paciente estava viva no fim do estudo.</p>
+
+<p>Para mais informações sobre o banco de dados, consulte o <code>help(ovarian)</code>.</p>
+
+<p>Para mais informações sobre Análise de Sobrevivência, consultar as seguintes referências:</p>
+
+<ul>
+<li><p>Colosimo, E.A. e Giolo, S.R.. (2005) Análise de Sobrevivência Aplicada. ABE --- Projeto fisher. Editora Edgard Blucher</p></li>
+<li><p>Kalbfleisch, J. D.; Prentice, Ross L. (2002). The statistical analysis of failure time data. New York: John Wiley &amp; Sons.</p></li>
+<li><p>Lawless, Jerald F. (2003). Statistical Models and Methods for Lifetime Data (2nd ed.). Hoboken: John Wiley and Sons.</p></li>
+</ul>
+
+<h3>Kaplan-Meier e Log-rank</h3>
+
+<p>O Kaplan-Meier é a principal ferramenta para visualizar dados de sobrevivência. Esses gráficos ajustam curvas tipo-escada da proporção de indivíduos <em>em risco</em> --- que ainda não falharam e não foram censurados --- ao longo do tempo. Para plotar um Kaplan-Meier no R, utilizamos a função <code>survfit()</code> e a função <code>plot()</code>.</p>
+
+<pre><code class="r">fit &lt;- survfit(Surv(futime, fustat) ~ rx, data = ovarian)
+
+plot(fit)
+</code></pre>
+
+<p><img src="assets/fig/unnamed-chunk-2-1.png" alt="plot of chunk unnamed-chunk-2"> </p>
+
+<p>Também podemos construir um Kaplan-Meier com o <code>ggplot2</code>, mas observe que é necessário fazer algums modificações no objeto <code>fit</code>:</p>
+
+<pre><code class="r">m &lt;- length(fit$strata)
+
+df &lt;- data.frame(time = c(rep(0, m), fit$time),
+                 surv = c(rep(1, m), fit$surv),
+                 group = c(names(fit$strata), 
+                          rep(names(fit$strata), fit$strata)))
+
+ggplot(data = df) +  
+        geom_step(aes(x = time, y = surv, colour = as.factor(group))) +
+        ylim(0, 1) +
+        labs(colour = &quot;Curvas&quot;, y = &quot;Proporção de sobreviventes&quot;,
+             x = &quot;Tempo&quot;) 
+</code></pre>
+
+<p><img src="assets/fig/unnamed-chunk-3-1.png" alt="plot of chunk unnamed-chunk-3"> </p>
+
+<p>O teste de log-rank para comparação de grupos é realizado pela função <code>survdiff()</code>:</p>
+
+<pre><code class="r">survdiff(Surv(futime, fustat) ~ rx, data = ovarian)
+</code></pre>
+
+<pre><code>## Call:
+## survdiff(formula = Surv(futime, fustat) ~ rx, data = ovarian)
+## 
+##       N Observed Expected (O-E)^2/E (O-E)^2/V
+## rx=1 13        7     5.23     0.596      1.06
+## rx=2 13        5     6.77     0.461      1.06
+## 
+##  Chisq= 1.1  on 1 degrees of freedom, p= 0.303
+</code></pre>
+
+<h3>Modelos paramétricos</h3>
+
+<p>Para ajustar modelos paramétricos, podemos utilizar a função <code>survreg()</code>.</p>
+
+<pre><code class="r">fit &lt;- survreg(Surv(futime, fustat) ~ rx + age, data = ovarian, 
+               dist = &quot;exponential&quot;)
+
+summary(fit)
+</code></pre>
+
+<pre><code>## 
+## Call:
+## survreg(formula = Surv(futime, fustat) ~ rx + age, data = ovarian, 
+##     dist = &quot;exponential&quot;)
+##              Value Std. Error     z        p
+## (Intercept) 12.123     2.3966  5.06 4.23e-07
+## rx           0.661     0.6159  1.07 2.83e-01
+## age         -0.105     0.0319 -3.30 9.81e-04
+## 
+## Scale fixed at 1 
+## 
+## Exponential distribution
+## Loglik(model)= -91.2   Loglik(intercept only)= -98
+##  Chisq= 13.65 on 2 degrees of freedom, p= 0.0011 
+## Number of Newton-Raphson Iterations: 5 
+## n= 26
+</code></pre>
+
+<p>Observe que no exemplo acima utilizamos a distribuição Exponencial. O argumento <code>dist =</code> pode ser modificado para ajustarmos modelos com outras distribuições:</p>
+
+<ul>
+<li><code>dist = &quot;weibull&quot;</code> --- distribuição Weibull (default)</li>
+<li><code>dist = &quot;gaussian&quot;</code> --- distribuição Normal</li>
+<li><code>dist = &quot;logistic&quot;</code> --- distribuição Logística</li>
+<li><code>dist = &quot;lognormal&quot;</code> --- distribuição Log-normal</li>
+<li><code>dist = &quot;loglogistic&quot;</code> --- distribuição Log-logística</li>
+</ul>
+
+<h3>Modelo semi-paramétrico de Cox</h3>
+
+<p>No R, a função mais utilizada para ajustar modelos de Cox é a <code>coxph()</code>.</p>
+
+<pre><code class="r">fit &lt;- coxph(Surv(futime, fustat) ~ age + rx, data = ovarian)
+
+summary(fit)
+</code></pre>
+
+<pre><code>## Call:
+## coxph(formula = Surv(futime, fustat) ~ age + rx, data = ovarian)
+## 
+##   n= 26, number of events= 12 
+## 
+##         coef exp(coef) se(coef)      z Pr(&gt;|z|)   
+## age  0.14733   1.15873  0.04615  3.193  0.00141 **
+## rx  -0.80397   0.44755  0.63205 -1.272  0.20337   
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+##     exp(coef) exp(-coef) lower .95 upper .95
+## age    1.1587      0.863    1.0585     1.268
+## rx     0.4475      2.234    0.1297     1.545
+## 
+## Concordance= 0.798  (se = 0.091 )
+## Rsquare= 0.457   (max possible= 0.932 )
+## Likelihood ratio test= 15.89  on 2 df,   p=0.0003551
+## Wald test            = 13.47  on 2 df,   p=0.00119
+## Score (logrank) test = 18.56  on 2 df,   p=9.341e-05
+</code></pre>
+
+<h2>Generalized Additive Model (GAM)</h2>
+
+<p>Os modelos aditivos generalizados ou GAM são modelos baseados na teoria desenvolvida por Trevor
+Hastie e Robert Tibshirani, e podem ser vistos como uma generalização de GLM, no sentido de que todos os
+GLM sãoo casos particulares de GAM.</p>
+
+<p>Na regressão normal e em GLM assumimos, em geral, que as variáveis aleatórias correspondentes aos indivíduos são independentes, e que existe uma função, denominada função de ligação, que une as médias destas variáveis aleatórias a um certo preditor linear.</p>
+
+<p>A grande mudança nos modelos aditivos generalizados está na forma do preditor. Para cada variável explicativa, temos associada uma função a ser estimada (ou suavizada), sendo que o preditor fica definido como a soma dessas funções</p>
+
+<p>\[
+g(\mu_i) = f_0 + \sum f(x_{ij})
+\]</p>
+
+<p>Para evitar o desconforto da interpretação das contribuições marginais (funções), uma alternativa é utilizar as funções de suavização para ajustar variáveis de controle em que não há interesse direto, e manter a parte principal com termos paramétricos. Geralmente isso facilita a interpretação e melhora o ajuste do modelo em relação ao GLM.</p>
+
+<h3>Pacote mgcv</h3>
+
+<p>O pacote <code>mgcv</code> é um dos pacotes mais completos do R e permite simulação, ajuste, visualização e análise de resíduos para <code>gam</code>. O pacote gerou até <a href="http://books.google.co.uk/books?id=hr17lZC-3jQC">um livro</a>.</p>
+
+<p>Na prática, a utilização do GAM não difere muito de modelos GLM. Uma das únicas diferenças na especificação do modelo é que podemos utilizar a função <code>s</code> para determinar quais termos queremos que sejam ajustados com funções aditivas.</p>
+
+<h4>Exemplo: PNUD</h4>
+
+<pre><code class="r">data(pnud_muni, package=&#39;abjutils&#39;)
+
+library(mgcv)
+fit_model &lt;- gam(espvida ~ ano + s(rdpc) + s(i_escolaridade), data=pnud_muni, family=Gamma)
+
+summary(fit_model)
+</code></pre>
+
+<pre><code>## 
+## Family: Gamma 
+## Link function: inverse 
+## 
+## Formula:
+## espvida ~ ano + s(rdpc) + s(i_escolaridade)
+## &lt;environment: 0xcd88d10&gt;
+## 
+## Parametric coefficients:
+##               Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)  1.234e-01  1.544e-03   79.92   &lt;2e-16 ***
+## ano         -5.435e-05  7.719e-07  -70.41   &lt;2e-16 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Approximate significance of smooth terms:
+##                     edf Ref.df       F p-value    
+## s(rdpc)           8.857  8.993 1202.66  &lt;2e-16 ***
+## s(i_escolaridade) 5.644  6.786   22.31  &lt;2e-16 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## R-sq.(adj) =  0.831   Deviance explained = 81.9%
+## GCV = 0.0011932  Scale est. = 0.0011843  n = 16695
+</code></pre>
+
+<pre><code class="r">par(mfrow=c(1, 2))
+plot(fit_model, scheme=1)
+</code></pre>
+
+<p><img src="assets/fig/unnamed-chunk-7-1.png" alt="plot of chunk unnamed-chunk-7"> </p>
+
+<h3>Pacote gamlss</h3>
+
+<p>Se por algum motivo existir algum problema na análise em relação à distribuição, heterocedasticidade, e utilização de preditores lineares, uma possível alternativa é o GAMLSS.</p>
+
+<p>GAMLSS significa Generalized Additive Models for Location, Scale and Shape. Com GAMLSS é possível modelar não só a média da distribuição \(\mu_i\) (primeiro momento), mas também a variância \(\sigma_i\) (segundo momento), a assimetria \(\phi_i\) (terceiro momento) e a curtose \(\rho_i\) (quarto momento), usando preditores.</p>
+
+<p>Por ser um modelo aditivo, o GAMLSS permite que sejam adicionados termos de suavização na fórmula do modelo, o que o torna uma generalização natural do GAM (em relação à modelagem, não ao método de ajuste).</p>
+
+<p>Por fim, o modelo GAMLSS possui <strong>mais de 50</strong> famílias de distribuições implementadas, o que nos dá uma enorme gama de opções para criação de modelos.</p>
+
+<p>Também é possível adicionar efeitos aleatórios utilizando o GAMLSS, mas essa parte ainda é experimental.</p>
+
+<p>Mas tudo vem com um preço. Por ser um grande canhão, o método de ajuste de modelos GAMLSS geralmente são baseados técnicas de otimização aproximadas. Além disso, o ajuste de modelos pode ser mais lento que os concorrentes. Por fim, a análise de resíduos para GAMLSS é bastante limitada (e provavelmente continuará sendo).</p>
+
+<p>Recomendamos a utilização do <code>gamlss</code> com muito cuidado, e sempre acompanhando outras modelagens, usando <code>glm</code> ou <code>gam</code>, por exemplo.</p>
+
+<h4>Exemplo: PNUD</h4>
+
+<pre><code class="r">library(gamlss)
+
+# Cuidado! O pacote gamlss carrega MASS, que por sua vez mascara a função select do dplyr.
+
+dados &lt;- pnud_muni %&gt;% 
+  dplyr::select(rdpc, i_escolaridade, espvida, ano) %&gt;% 
+  na.omit %&gt;% 
+  mutate(ano=factor(ano))
+
+fit_model &lt;- gamlss(formula=espvida ~ cs(rdpc) + cs(i_escolaridade),
+                    sigma.formula = ~ ano,
+                    data=dados, 
+                    family=NET())
+</code></pre>
+
+<pre><code>## GAMLSS-RS iteration 1: Global Deviance = 78553.62 
+## GAMLSS-RS iteration 2: Global Deviance = 77935.35 
+## GAMLSS-RS iteration 3: Global Deviance = 77903.37 
+## GAMLSS-RS iteration 4: Global Deviance = 77900.76 
+## GAMLSS-RS iteration 5: Global Deviance = 77900.39 
+## GAMLSS-RS iteration 6: Global Deviance = 77900.33 
+## GAMLSS-RS iteration 7: Global Deviance = 77900.31 
+## GAMLSS-RS iteration 8: Global Deviance = 77900.31
+</code></pre>
+
+<pre><code class="r">summary(fit_model)
+</code></pre>
+
+<pre><code>## Warning in summary.gamlss(fit_model): summary: vcov has failed, option qr is used instead
+</code></pre>
+
+<pre><code>## *******************************************************************
+## Family:  c(&quot;NET&quot;, &quot;Normal Exponential t&quot;) 
+## 
+## Call:  
+## gamlss(formula = espvida ~ cs(rdpc) + cs(i_escolaridade), sigma.formula = ~ano,  
+##     family = NET(), data = dados) 
+## 
+## Fitting method: RS() 
+## 
+## -------------------------------------------------------------------
+## Mu link function:  identity
+## Mu Coefficients:
+##                     Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)        6.072e+01  4.240e-02 1432.23   &lt;2e-16 ***
+## cs(rdpc)           1.150e-02  1.147e-04  100.28   &lt;2e-16 ***
+## cs(i_escolaridade) 1.556e+01  1.962e-01   79.31   &lt;2e-16 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## -------------------------------------------------------------------
+## Sigma link function:  log
+## Sigma Coefficients:
+##             Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)  1.11223    0.01277   87.12   &lt;2e-16 ***
+## ano2000     -0.34429    0.01805  -19.07   &lt;2e-16 ***
+## ano2010     -0.76936    0.01805  -42.61   &lt;2e-16 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+</code></pre>
+
+<pre><code>## Error in terms.default(formula(object, &quot;nu&quot;), specials = .gamlss.sm.list): no terms component nor attribute
+</code></pre>
+
+<pre><code class="r">plot(fit_model)
+</code></pre>
+
+<p><img src="assets/fig/unnamed-chunk-8-1.png" alt="plot of chunk unnamed-chunk-8"> </p>
+
+<pre><code>## *******************************************************************
+##        Summary of the Quantile Residuals
+##                            mean   =  -0.08630656 
+##                        variance   =  0.8372182 
+##                coef. of skewness  =  0.06545049 
+##                coef. of kurtosis  =  2.174945 
+## Filliben correlation coefficient  =  0.991913 
+## *******************************************************************
+</code></pre>
+
+<p><strong>Leitura:</strong> Iniciação científica: <a href="https://www.dropbox.com/s/du1h5kmunmwjl65/iniciacao.pdf?dl=0">De GLM a GAMLSS</a></p>
+
+<h2>Modelos Bayesianos</h2>
+
+<p>A comunidade bayesiana do <code>R</code> é cada vez maior, e muitas técnicas estão surgindo com o passar dos anos. A cada dia temos novas contribuições, e pode-se dizer que hoje o <code>R</code> é uma das melhores plataformas para utilização de modelos bayesianos no mundo.</p>
+
+<h3>Um pouco (muito pouco) de teoria</h3>
+
+<p>A diferença primordial dos modelos bayesianos para os modelos clássicos / frequentistas nasce da interpretação da probabilidade. Segundo a teoria bayesiana, a probabilidade é subjetiva e está associada com a opinião de um indivíduo acerca de um evento, que é incerto.</p>
+
+<p>Traduzindo para modelos, os parâmetros de um modelo (que são nossas quantidades de interesse) não são mais tratados como pontos a serem estimados, mas sim como variâveis aleatórias a serem estudadas. </p>
+
+<p>A ideia é que, em cada estudo, o pesquisador tenha uma ideia de como se comporta o seu parâmetro de interesse, e possa traduzir essa ideia na forma de uma distribuição de probabilidades (<em>priori</em>). Depois, os dados são observados e, com isso, a opinião inicial é atualizada (<em>posteriori</em>). A estatística bayesiana utiliza um brilhante algoritmo para realizar essa atualização, que é o Teorema de Bayes.</p>
+
+<p>A grande dificuldade em modelos bayesianos ocorre porque o algoritmo de atualização da distribuição de probabilidades muitas vezes necessita que calculemos algumas integrais extremamente difíceis (impossíveis analiticamente, e muito difíceis computacionalmente).</p>
+
+<p>Tenha em mente que os pacotes de análise bayesiana geralmente focam nesse problema: como simular dados da distribuição <em>a posteriori</em>. A maioria dos algoritmos que tentam resolver essa tarefa são baseados em técnicas MCMC (Markov Chains Monte Carlo), que basicamente são meios de simular dados nas regiões de maior massa da posteriori.</p>
+
+<p>Estatística bayesiana é muito simples na teoria, mas os modelos podem ser bem demorados para serem ajustados, e existe um espaço amplo para subjetividades na hora de escolher a melhor metodologia para simular da posteriori.</p>
+
+<h3>Pacotes que fazem análise bayesiana</h3>
+
+<ul>
+<li><code>rjags</code>: Forma de utilizar o software JAGS no R (geralmente para fazer MCMC).</li>
+<li><code>R2WinBUGS</code> e <code>rbugs</code>: Forma de utilizar o WinBugs e o OpenBugs no R.</li>
+<li><code>LaplacesDemon</code>: Pacote completamente implementado em R para inferência bayesiana.</li>
+</ul>
+
+<p>Acesse <a href="http://cran.r-project.org/web/views/Bayesian.html">aqui</a> para uma lista completa de pacotes.</p>
+
+<h3>LaplacesDemon</h3>
+
+<p>O pacote <code>LaplacesDemon</code>, ou simplesmente LD, é um gigantesco framework do R para realização de análise bayesiana de dados. É interessante notar que houve uma preocupação grande em tornar o código todo disponível em <code>R</code>, tanto que, por conta dos problemas de performance, foi criado também o pacote <code>LaplacesDemonCpp</code>, que tem suas funções implementadas em <code>C++</code>.</p>
+
+<p>Para mais informações sobre o pacote LD, ver <a href="">aqui</a>.</p>
+
+<p>Para realizar uma análise bayesiana, geralmente o que sabemos é a nossa <em>priori</em>, a função de verossimilhança (ambas determinadas de pelo estatístico ou pesquisador) e os dados colhidos em uma amostra. Nosso objetivo é obter a posteriori</p>
+
+<p>\[
+f(\theta|x) = \frac{l(x | \theta)f(\theta)}{\int_{\theta} l(x|\theta)f(\theta)}
+\]</p>
+
+<p>Para exemplos de uso do LD, ver</p>
+
+<pre><code class="r">vignette(&#39;Examples&#39;, package = &#39;LaplacesDemon&#39;)
+</code></pre>
+
+<p>Algumas categorias de técnicas para realizar a aproximação bayesiana são</p>
+
+<ul>
+<li>ABC (Aproximate Bayesian Computation)</li>
+<li>Importance Sampling</li>
+<li>Iterative Quadrature</li>
+<li>Laplace Aproximation</li>
+<li>MCMC (Markov Chains Monte Carlo)</li>
+<li>VB (Variational Bayes)</li>
+</ul>
+
+<h3>Exemplo: Análise de ponto de mudança</h3>
+
+<p>Temos um banco de dados assim</p>
+
+<pre><code class="r">N &lt;- 29
+
+y &lt;- c(1.12, 1.12, 0.99, 1.03, 0.92, 0.90, 0.81, 0.83, 0.65, 0.67, 0.60,
+       0.59, 0.51, 0.44, 0.43, 0.43, 0.33, 0.30, 0.25, 0.24, 0.13, -0.01,
+      -0.13, -0.14, -0.30, -0.33, -0.46, -0.43, -0.65)
+
+x &lt;- c(-1.39, -1.39, -1.08, -1.08, -0.94, -0.80, -0.63, -0.63, -0.25, -0.25,
+       -0.12, -0.12, 0.01, 0.11, 0.11, 0.11, 0.25, 0.25, 0.34, 0.34, 0.44,
+        0.59, 0.70, 0.70, 0.85, 0.85, 0.99, 0.99, 1.19)
+
+data_frame(x, y) %&gt;% ggplot() + geom_point(aes(x=x, y=y))
+</code></pre>
+
+<p><img src="assets/fig/unnamed-chunk-10-1.png" alt="plot of chunk unnamed-chunk-10"> </p>
+
+<p>Queremos ajustar no gráfico um modelo linear de ponto de mudança, que vai ajustar duas retas, uma antes e outra depois de certo ponto. O ponto de mudança é determinado pelo modelo.</p>
+
+<h4>Dados</h4>
+
+<p>No LD, dados não são especificados em um <code>data.frame</code>. Ao invés disso, temos de criar uma lista contendo, além dos dados, algumas informações iniciais, como</p>
+
+<pre><code class="r">mon.names &lt;- &quot;LP&quot; # variáveis para monitoramento. No caso, Log Posterior
+parm.names &lt;- as.parm.names(list(alpha=0, beta=rep(0,2), sigma=0, theta=0)) # nomes dos parâmetros
+
+pos.alpha &lt;- grep(&quot;alpha&quot;, parm.names) # posição do parâmetro alpha
+pos.beta &lt;- grep(&quot;beta&quot;, parm.names)   # posição dos parâmetros beta
+pos.sigma &lt;- grep(&quot;sigma&quot;, parm.names) # posição do parâmetro sigma
+pos.theta &lt;- grep(&quot;theta&quot;, parm.names) # posição do parâmetro theta
+
+# Função que gera valores iniciais para os parâmetros. No caso, sem muito critério.
+PGF &lt;- function(Data) return(c(rnorm(1), rnorm(2), runif(1), runif(1)))
+
+MyData &lt;- list(N=N, 
+               PGF=PGF, 
+               mon.names=mon.names, 
+               parm.names=parm.names,
+               pos.alpha=pos.alpha, 
+               pos.beta=pos.beta, 
+               pos.sigma=pos.sigma,
+               pos.theta=pos.theta, 
+               x=x, 
+               y=y)
+</code></pre>
+
+<h4>Modelo</h4>
+
+<p>No LD precisamos espeficiar uma função <code>Model</code> que será responsável por calcular as informações necessárias para atualização do modelo.</p>
+
+<p>A função recebe um vetor numérico de parâmetros, e a lista com os dados, e retorna uma lista contendo a <code>LP</code> (log posteriori sem normalização) calculada, o <code>Dev</code> (deviance), as informações monitoradas (no caso, LP), um <code>yhat</code> (chute para o valor de y, de acordo com os parâmetros calculados), e <code>parm</code> o vetor de parâmetros (usualmente ajustado para ficar dentro do espaço paramétrico).</p>
+
+<pre><code class="r">Model &lt;- function(parm, Data) {
+
+  ### Parameters
+  alpha &lt;- parm[Data$pos.alpha]
+  beta &lt;- parm[Data$pos.beta]
+  sigma &lt;- interval(parm[Data$pos.sigma], 1e-100, Inf)
+  parm[Data$pos.sigma] &lt;- sigma # atualiza o valor para retornar depois
+  theta &lt;- interval(parm[Data$pos.theta], -1.3, 1.1)
+  parm[Data$pos.theta] &lt;- theta # atualiza o valor para retornar depois
+
+  ### Log-Prior (calcula com base nas funções das prioris predefinidas)
+  alpha.prior &lt;- dnormv(alpha, 0, 1000, log=TRUE)
+  beta.prior &lt;- sum(dnormv(beta, 0, 1000, log=TRUE))
+  sigma.prior &lt;- dhalfcauchy(sigma, 25, log=TRUE)
+  theta.prior &lt;- dunif(theta, -1.3, 1.1, log=TRUE)
+
+  ### Log-Likelihood (calcula a log-verossimilhança com base no modelo concebido)
+  mu &lt;- alpha + beta[1]*x + beta[2]*(x - theta)*((x - theta) &gt; 0)
+  LL &lt;- sum(dnorm(Data$y, mu, sigma, log=TRUE))
+
+  ### Log-Posterior (calcula a log posteriori)
+  LP &lt;- LL + alpha.prior + beta.prior + sigma.prior + theta.prior
+
+  Modelout &lt;- list(LP=LP, 
+                   Dev=-2*LL, 
+                   Monitor=LP, 
+                   yhat=rnorm(length(mu), mu, sigma), 
+                   parm=parm)
+
+  return(Modelout)
+}
+</code></pre>
+
+<h4>Atualização (&quot;ajuste&quot;)</h4>
+
+<pre><code class="r">set.seed(666) # reprodutibilidade
+
+Initial.Values &lt;- c(0.5, -0.4, -0.6, 0.02, 0.04) # valores iniciais da cadeia
+
+Fit &lt;- LaplacesDemon(Model, MyData, Initial.Values, 
+                     Iterations = 1000000, 
+                     Status = 100000,
+                     Thinning = 1000,
+                     Algorithm=&quot;HARM&quot;)
+</code></pre>
+
+<pre><code>## 
+## Laplace&#39;s Demon was called on Thu Feb  5 20:14:45 2015
+## 
+## Performing initial checks...
+## Algorithm: Hit-And-Run Metropolis 
+## 
+## Laplace&#39;s Demon is beginning to update...
+## Iteration: 100000Iteration: 100000,   Proposal: Multivariate,   LP:54.4
+## Iteration: 200000Iteration: 200000,   Proposal: Multivariate,   LP:57.1
+## Iteration: 300000Iteration: 300000,   Proposal: Multivariate,   LP:53.5
+## Iteration: 400000Iteration: 400000,   Proposal: Multivariate,   LP:52.7
+## Iteration: 500000Iteration: 500000,   Proposal: Multivariate,   LP:53.6
+## Iteration: 600000Iteration: 600000,   Proposal: Multivariate,   LP:57.3
+## Iteration: 700000Iteration: 700000,   Proposal: Multivariate,   LP:56.8
+## Iteration: 800000Iteration: 800000,   Proposal: Multivariate,   LP:54.4
+## Iteration: 900000Iteration: 900000,   Proposal: Multivariate,   LP:55.9
+## Iteration: 1000000Iteration: 1000000,   Proposal: Multivariate,   LP:56.4
+## 
+## Assessing Stationarity
+## Assessing Thinning and ESS
+## Creating Summaries
+## Estimating Log of the Marginal Likelihood
+## Creating Output
+## 
+## Laplace&#39;s Demon has finished.
+</code></pre>
+
+<pre><code class="r">print(Fit)
+</code></pre>
+
+<pre><code>## Call:
+## LaplacesDemon(Model = Model, Data = MyData, Initial.Values = Initial.Values, 
+##     Iterations = 1e+06, Status = 1e+05, Thinning = 1000, Algorithm = &quot;HARM&quot;)
+## 
+## Acceptance Rate: 0.0082
+## Algorithm: Hit-And-Run Metropolis
+## Covariance Matrix: (NOT SHOWN HERE; diagonal shown instead)
+##        alpha      beta[1]      beta[2]        sigma        theta 
+## 1.448847e-04 1.929463e-04 3.485938e-04 1.059322e-05 9.739800e-04 
+## 
+## Covariance (Diagonal) History: (NOT SHOWN HERE)
+## Deviance Information Criterion (DIC):
+##           All Stationary
+## Dbar -144.857   -144.857
+## pD      7.759      7.759
+## DIC  -137.098   -137.098
+## Initial Values:
+## [1]  0.50 -0.40 -0.60  0.02  0.04
+## 
+## Iterations: 1e+06
+## Log(Marginal Likelihood): 54.9368
+## Minutes of run-time: 1.44
+## Model: (NOT SHOWN HERE)
+## Monitor: (NOT SHOWN HERE)
+## Parameters (Number of): 5
+## Posterior1: (NOT SHOWN HERE)
+## Posterior2: (NOT SHOWN HERE)
+## Recommended Burn-In of Thinned Samples: 0
+## Recommended Burn-In of Un-thinned Samples: 0
+## Recommended Thinning: 1000
+## Specs: (NOT SHOWN HERE)
+## Status is displayed every 1e+05 iterations
+## Summary1: (SHOWN BELOW)
+## Summary2: (SHOWN BELOW)
+## Thinned Samples: 1000
+## Thinning: 1000
+## 
+## 
+## Summary of All Samples
+##                   Mean         SD         MCSE      ESS            LB
+## alpha       0.54889694 0.01194315 0.0015452157 114.3381    0.52377374
+## beta[1]    -0.41730669 0.01388668 0.0016728669 123.9302   -0.44591849
+## beta[2]    -0.59685355 0.01867974 0.0016911970 222.8594   -0.63515809
+## sigma       0.02045297 0.00325632 0.0001355205 721.8425    0.01547604
+## theta       0.02569232 0.03122099 0.0041876935  99.2858   -0.03372459
+## Deviance -144.85680240 3.93933232 0.2831589212 295.1679 -149.65800475
+## LP         54.76360855 1.96966838 0.1415797495 295.1676   50.10425149
+##                 Median            UB
+## alpha       0.54865238    0.57262482
+## beta[1]    -0.41681401   -0.39137913
+## beta[2]    -0.59634087   -0.56248702
+## sigma       0.02004073    0.02739518
+## theta       0.02565389    0.09230082
+## Deviance -145.70783309 -135.53811529
+## LP         55.18911932   57.16421682
+## 
+## 
+## Summary of Stationary Samples
+##                   Mean         SD         MCSE      ESS            LB
+## alpha       0.54889694 0.01194315 0.0015452157 114.3381    0.52377374
+## beta[1]    -0.41730669 0.01388668 0.0016728669 123.9302   -0.44591849
+## beta[2]    -0.59685355 0.01867974 0.0016911970 222.8594   -0.63515809
+## sigma       0.02045297 0.00325632 0.0001355205 721.8425    0.01547604
+## theta       0.02569232 0.03122099 0.0041876935  99.2858   -0.03372459
+## Deviance -144.85680240 3.93933232 0.2831589212 295.1679 -149.65800475
+## LP         54.76360855 1.96966838 0.1415797495 295.1676   50.10425149
+##                 Median            UB
+## alpha       0.54865238    0.57262482
+## beta[1]    -0.41681401   -0.39137913
+## beta[2]    -0.59634087   -0.56248702
+## sigma       0.02004073    0.02739518
+## theta       0.02565389    0.09230082
+## Deviance -145.70783309 -135.53811529
+## LP         55.18911932   57.16421682
+</code></pre>
+
+<pre><code class="r">Consort(Fit)
+</code></pre>
+
+<pre><code>## 
+## #############################################################
+## # Consort with Laplace&#39;s Demon                              #
+## #############################################################
+## Call:
+## LaplacesDemon(Model = Model, Data = MyData, Initial.Values = Initial.Values, 
+##     Iterations = 1e+06, Status = 1e+05, Thinning = 1000, Algorithm = &quot;HARM&quot;)
+## 
+## Acceptance Rate: 0.0082
+## Algorithm: Hit-And-Run Metropolis
+## Covariance Matrix: (NOT SHOWN HERE; diagonal shown instead)
+##        alpha      beta[1]      beta[2]        sigma        theta 
+## 1.448847e-04 1.929463e-04 3.485938e-04 1.059322e-05 9.739800e-04 
+## 
+## Covariance (Diagonal) History: (NOT SHOWN HERE)
+## Deviance Information Criterion (DIC):
+##           All Stationary
+## Dbar -144.857   -144.857
+## pD      7.759      7.759
+## DIC  -137.098   -137.098
+## Initial Values:
+## [1]  0.50 -0.40 -0.60  0.02  0.04
+## 
+## Iterations: 1e+06
+## Log(Marginal Likelihood): 54.9368
+## Minutes of run-time: 1.44
+## Model: (NOT SHOWN HERE)
+## Monitor: (NOT SHOWN HERE)
+## Parameters (Number of): 5
+## Posterior1: (NOT SHOWN HERE)
+## Posterior2: (NOT SHOWN HERE)
+## Recommended Burn-In of Thinned Samples: 0
+## Recommended Burn-In of Un-thinned Samples: 0
+## Recommended Thinning: 1000
+## Specs: (NOT SHOWN HERE)
+## Status is displayed every 1e+05 iterations
+## Summary1: (SHOWN BELOW)
+## Summary2: (SHOWN BELOW)
+## Thinned Samples: 1000
+## Thinning: 1000
+## 
+## 
+## Summary of All Samples
+##                   Mean         SD         MCSE      ESS            LB
+## alpha       0.54889694 0.01194315 0.0015452157 114.3381    0.52377374
+## beta[1]    -0.41730669 0.01388668 0.0016728669 123.9302   -0.44591849
+## beta[2]    -0.59685355 0.01867974 0.0016911970 222.8594   -0.63515809
+## sigma       0.02045297 0.00325632 0.0001355205 721.8425    0.01547604
+## theta       0.02569232 0.03122099 0.0041876935  99.2858   -0.03372459
+## Deviance -144.85680240 3.93933232 0.2831589212 295.1679 -149.65800475
+## LP         54.76360855 1.96966838 0.1415797495 295.1676   50.10425149
+##                 Median            UB
+## alpha       0.54865238    0.57262482
+## beta[1]    -0.41681401   -0.39137913
+## beta[2]    -0.59634087   -0.56248702
+## sigma       0.02004073    0.02739518
+## theta       0.02565389    0.09230082
+## Deviance -145.70783309 -135.53811529
+## LP         55.18911932   57.16421682
+## 
+## 
+## Summary of Stationary Samples
+##                   Mean         SD         MCSE      ESS            LB
+## alpha       0.54889694 0.01194315 0.0015452157 114.3381    0.52377374
+## beta[1]    -0.41730669 0.01388668 0.0016728669 123.9302   -0.44591849
+## beta[2]    -0.59685355 0.01867974 0.0016911970 222.8594   -0.63515809
+## sigma       0.02045297 0.00325632 0.0001355205 721.8425    0.01547604
+## theta       0.02569232 0.03122099 0.0041876935  99.2858   -0.03372459
+## Deviance -144.85680240 3.93933232 0.2831589212 295.1679 -149.65800475
+## LP         54.76360855 1.96966838 0.1415797495 295.1676   50.10425149
+##                 Median            UB
+## alpha       0.54865238    0.57262482
+## beta[1]    -0.41681401   -0.39137913
+## beta[2]    -0.59634087   -0.56248702
+## sigma       0.02004073    0.02739518
+## theta       0.02565389    0.09230082
+## Deviance -145.70783309 -135.53811529
+## LP         55.18911932   57.16421682
+## 
+## Demonic Suggestion
+## 
+## Due to the combination of the following conditions,
+## 
+## 1. Hit-And-Run Metropolis
+## 2. The acceptance rate (0.008196) is below 0.15.
+## 3. At least one target MCSE is &gt;= 6.27% of its marginal posterior
+##    standard deviation.
+## 4. At least one target distribution has an effective sample size
+##    (ESS) less than 100. The worst mixing chain is: theta (ESS=99.2858).
+## 5. Each target distribution became stationary by
+##    1 iteration.
+## 
+## Laplace&#39;s Demon has not been appeased, and suggests
+## copy/pasting the following R code into the R console,
+## and running it.
+## 
+## Initial.Values &lt;- as.initial.values(Fit)
+## Fit &lt;- LaplacesDemon(Model, Data=MyData, Initial.Values,
+##      Covar=NULL, Iterations=1e+06, Status=694444, Thinning=1000,
+##      Algorithm=&quot;HARM&quot;, Specs=list(alpha.star=NA, B=NULL)
+## 
+## Laplace&#39;s Demon is finished consorting.
+</code></pre>
+
+<h4>Plotando resultado</h4>
+
+<p>Diagnóstico</p>
+
+<pre><code class="r">plot(Fit, BurnIn=100000, MyData, PDF=FALSE, Parms=NULL)
+</code></pre>
+
+<p><img src="assets/fig/unnamed-chunk-15-1.png" alt="plot of chunk unnamed-chunk-15"> <img src="assets/fig/unnamed-chunk-15-2.png" alt="plot of chunk unnamed-chunk-15"> <img src="assets/fig/unnamed-chunk-15-3.png" alt="plot of chunk unnamed-chunk-15"> </p>
+
+<p>Resultados</p>
+
+<pre><code class="r">caterpillar.plot(Fit, Parms=c(&quot;beta&quot;, &#39;theta&#39;))
+</code></pre>
+
+<p><img src="assets/fig/unnamed-chunk-16-1.png" alt="plot of chunk unnamed-chunk-16"> </p>
+
+<p>Valores preditos</p>
+
+<pre><code class="r">Pred &lt;- predict(Fit, Model, MyData)
+plot(Pred, Style=&quot;Fitted&quot;)
+</code></pre>
+
+<p><img src="assets/fig/unnamed-chunk-17-1.png" alt="plot of chunk unnamed-chunk-17"> </p>
+
+<p>Um gráfico muito difícil para frequentistas</p>
+
+<pre><code class="r">m &lt;- Fit$Posterior2 %&gt;% data.frame %&gt;% summarise_each(funs(median))
+
+data_frame(x, y) %&gt;% 
+  ggplot() + 
+  geom_point(aes(x=x, y=y)) +
+  geom_segment(x=-1.5, xend=m$theta, y=m$alpha + m$beta.1. * (-1.5), 
+               yend=m$alpha + m$beta.1. * (m$theta)) +
+  geom_segment(x=m$theta, xend=1.2, y=m$alpha + m$beta.1. * (m$theta), 
+               yend=m$alpha + m$beta.1. * (1.2) + m$beta.2.*(1.2-m$theta)) +
+  geom_point(aes(x=theta, y=alpha + beta.1. * theta), 
+             data=data.frame(Fit$Posterior2), alpha=.05,
+             colour=&#39;red&#39;)
+</code></pre>
+
+<p><img src="assets/fig/unnamed-chunk-18-1.png" alt="plot of chunk unnamed-chunk-18"> </p>
+
+<pre><code class="r">data_frame(x, y) %&gt;% 
+  ggplot() + 
+  geom_point(aes(x=x, y=y)) +
+  geom_segment(x=-1.5, xend=m$theta, y=m$alpha + m$beta.1. * (-1.5), 
+               yend=m$alpha + m$beta.1. * (m$theta)) +
+  geom_segment(x=m$theta, xend=1.2, y=m$alpha + m$beta.1. * (m$theta), 
+               yend=m$alpha + m$beta.1. * (1.2) + m$beta.2.*(1.2-m$theta)) +
+  geom_density2d(aes(x=theta, y=alpha + beta.1. * theta), 
+             data=data.frame(Fit$Posterior2), 
+             colour=&#39;red&#39;) +
+  scale_x_continuous(limits=c(-.25,.25)) +
+  scale_y_continuous(limits=c(.25,.75))
+</code></pre>
+
+<pre><code>## Warning: Removed 19 rows containing missing values (geom_point).
+</code></pre>
+
+<p><img src="assets/fig/unnamed-chunk-18-2.png" alt="plot of chunk unnamed-chunk-18"> </p>
+
+<h2>Sobre redes neurais</h2>
+
+<p>Exemplo retirado <a href="http://gekkoquant.com/2012/05/26/neural-networks-with-r-simple-example/">deste site</a> e levemente modificado.</p>
+
+<pre><code class="r">library(neuralnet)
+
+trainningdata &lt;- data_frame(Input=runif(50, min=0, max=100), Output=sqrt(Input))
+
+# Train the neural network
+# Going to have 10 hidden layers
+# Threshold is a numeric value specifying the threshold for the partial
+# derivatives of the error function as stopping criteria.
+
+net.sqrt &lt;- neuralnet(Output ~ Input, data = trainingdata, hidden=10, threshold=0.01)
+</code></pre>
+
+<pre><code>## Error in varify.variables(data, formula, startweights, learningrate.limit, : object &#39;trainingdata&#39; not found
+</code></pre>
+
+<pre><code class="r">print(net.sqrt) 
+</code></pre>
+
+<pre><code>## Error in print(net.sqrt): object &#39;net.sqrt&#39; not found
+</code></pre>
+
+<pre><code class="r">plot(net.sqrt)
+</code></pre>
+
+<pre><code>## Error in plot(net.sqrt): object &#39;net.sqrt&#39; not found
+</code></pre>
+
+<pre><code class="r">testdata &lt;- data.frame(test=(1:10)^2)
+net.results &lt;- compute(net.sqrt, testdata)
+</code></pre>
+
+<pre><code>## Error in compute(net.sqrt, testdata): object &#39;net.sqrt&#39; not found
+</code></pre>
+
+<pre><code class="r">cleanoutput &lt;- data_frame(value=testdata$test, 
+                          real_resp=sqrt(value), 
+                          estimate=as.vector(net.results$net.result))
+</code></pre>
+
+<pre><code>## Error in as.vector(net.results$net.result): object &#39;net.results&#39; not found
+</code></pre>
+
+<pre><code class="r">print(cleanoutput)
+</code></pre>
+
+<pre><code>## Error in print(cleanoutput): object &#39;cleanoutput&#39; not found
+</code></pre>
+
+<h1>Parte 2: &quot;Big data&quot;</h1>
+
+<p>(nos slides)</p>
+
+<h1>Parte 3: htmlwidgets</h1>
+
+<p>(nos slides)</p>
+
+<h1>Extra: web crawling</h1>
+
+<p>Ver <a href="https://github.com/jtrecenti/sabesp">este repositório</a> que baixa os dados da sabesp. Estudar pacotes <code>RCurl</code> (Duncan), XML (Duncan), <code>httr</code> (Hadley) e <code>rvest</code> (Hadley).</p>
+
+              <div id="disqus_thread"></div>
+            </li>
+          </ol>
+          <div class="pagination">
+            <ul>
+              <li><a href="http://curso-r.github.io">&#171; Back Home</a></li>
+            </ul>
+          </div> 
+        </div>
+			</div>
+		</div>
+  </div>
+</body>
+  <script src='../libraries/frameworks/purus/js/bootstrap.min.js'></script>
+  <script>
+      var disqus_developer = 1;
+      var disqus_shortname = 'curso-r'; 
+      // required: replace example with your forum shortname
+      /* * * DON'T EDIT BELOW THIS LINE * * */
+      (function() {
+          var dsq = document.createElement('script'); 
+          dsq.type = 'text/javascript'; dsq.async = true;
+          dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+          (document.getElementsByTagName('head')[0] || 
+           document.getElementsByTagName('body')[0]).appendChild(dsq);
+      })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  <!-- MathJax: Fall back to local if CDN offline but local image fonts are not supported (saves >100MB) -->
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [['$','$'], ['\\(','\\)']],
+        processEscapes: true
+      }
+    });
+  </script>
+  <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/2.0-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  <!-- <script src="https://c328740.ssl.cf1.rackcdn.com/mathjax/2.0-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  </script> -->
+  <script>window.MathJax || document.write('<script type="text/x-mathjax-config">MathJax.Hub.Config({"HTML-CSS":{imageFont:null}});<\/script><script src="../libraries/widgets/mathjax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"><\/script>')
+</script>
+<!-- Google Prettify -->
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/prettify/188.0.0/prettify.js"></script>
+  <script src='../libraries/highlighters/prettify/js/lang-r.js'></script>
+  <script>
+    var pres = document.getElementsByTagName("pre");
+    for (var i=0; i < pres.length; ++i) {
+      pres[i].className = "prettyprint linenums";
+    }
+    prettyPrint();
+  </script>
+  <!-- End Google Prettify --> 
+  </html>
