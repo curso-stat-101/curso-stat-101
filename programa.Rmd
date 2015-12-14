@@ -1,0 +1,62 @@
+---
+output: pdf_document
+---
+
+\centering
+
+**Uma introdução à análise explanatória de dados e métodos estatísticos**
+
+**Verão 2016**
+
+**Prof. William Nilson de Amorim**
+
+\ \ 
+
+\ \
+
+\ \
+
+
+\raggedright
+
+**1. Programa resumido**
+
+- Análise explanatória de dados
+    - tipos de variáveis
+    - distribuição de frequências
+    - medidas resumo
+    - medidas de associação
+    - gráficos
+- Probabilidade
+    - introdução
+    - propriedades básicas
+    - independência e condicionalidade
+    - teorema de Bayes
+    - variáveis aleatórias discretas
+    - variáveis aleatórias contínuas
+    - distribuição Bernoulli e Binomial
+    - disbribuição Normal
+- Inferência Estatística
+    - introdução
+    - amostragem
+    - estimação pontual
+    - estimação intervalar
+    - teste de hipóteses
+
+**2. Bibliografia**
+
+- *Estatística Básica*, 7ª edição. Wilton Bussab e Pedro Morettin. Editora Saraiva.
+
+- *Noções de Probabilidade e Estatística*, 7ª edição. Marcos Nascimento Magalhães e Antonio Carlos Pedroso de Lima. EDUSP.
+
+**3. Avaliação**
+
+A média final será calculada da seguinte forma:
+
+MF = 0.7xMP + 0.3xML,
+
+em que MF é a média final, MP é a média de provas e ML é a média de listas.
+
+**4. Data das provas**
+
+As provas serão realizadas nos dias 18 e 29 de janeiro.
