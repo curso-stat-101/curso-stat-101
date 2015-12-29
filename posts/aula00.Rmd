@@ -1,5 +1,5 @@
 ---
-title: "Aula 00 - Sobre o curso e porque usar R"
+title: "Aula 00 -  Apresentação do curso e background matemático"
 output:
   html_document:
     toc_depth: 3
