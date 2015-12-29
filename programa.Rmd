@@ -2,6 +2,8 @@
 output: pdf_document
 ---
 
+\pagenumbering{gobble}
+
 \centering
 
 **Uma introdução à análise explanatória de dados e métodos estatísticos**
@@ -14,10 +16,16 @@ output: pdf_document
 
 \ \
 
-\ \
-
 
 \raggedright
+
+Monitor: Eduardo Edamatsu --- e-mail: eduardoedamatsu@gmail.com
+
+Monitoria: terças (plantão de dúvidas) e quintas (resolução de exercícios) das 13h às 14h
+
+Site do curso: curso-stat.github.io
+
+\ \ 
 
 **1. Programa resumido**
 
