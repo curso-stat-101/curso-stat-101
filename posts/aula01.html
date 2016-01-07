@@ -76,7 +76,6 @@
               <span>2016-01-05</span><br/>
                <a class='label label-success' href='posts/aula01.Rmd'>Source</a>
 
-
 <div id="TOC">
 <ul>
 <li><a href="#analise-descritiva">Análise descritiva</a><ul>
@@ -128,14 +127,93 @@
 <p>Com o objetivo de analisar o comportamento das variáveis em estudo, uma ideia inicial é estudar como os valores de cada variável estão distribuídos. Uma maneira simples de se fazer isto é construir uma <em>tabela de frequências</em>.</p>
 <div id="exemplo-1" class="section level3">
 <h3>Exemplo 1</h3>
+<p>Vamos considerar as seguintes tabelas de frequência para a variável qualitativa</p>
+<p>X: diretor preferido entre as opções {Tarantino, Scorsese, Nolan, Fincher}.</p>
+<table>
+<thead>
+<tr class="header">
+<th align="center">Diretor</th>
+<th align="center">Frequência <span class="math">\((n_i)\)</span></th>
+<th align="center">Proporção <span class="math">\((f_i)\)</span></th>
+<th align="center">Proporção (%)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">Tarantino</td>
+<td align="center">33</td>
+<td align="center">0,33</td>
+<td align="center">33%</td>
+</tr>
+<tr class="even">
+<td align="center">Scorsese</td>
+<td align="center">22</td>
+<td align="center">0,22</td>
+<td align="center">22%</td>
+</tr>
+<tr class="odd">
+<td align="center">Nolan</td>
+<td align="center">35</td>
+<td align="center">0,35</td>
+<td align="center">35%</td>
+</tr>
+<tr class="even">
+<td align="center">Fincher</td>
+<td align="center">10</td>
+<td align="center">0,1</td>
+<td align="center">10%</td>
+</tr>
+<tr class="odd">
+<td align="center"><strong>Total</strong></td>
+<td align="center"><strong>100</strong></td>
+<td align="center"><strong>1</strong></td>
+<td align="center"><strong>100%</strong></td>
+</tr>
+</tbody>
+</table>
+<p>A <strong>frequência absoluta</strong> <span class="math">\((n_i)\)</span> representa quantas observações há em cada categoria da variável.</p>
+<p>A <strong>proporção</strong> ou <strong>frequência relativa</strong> é a razão entre a frequência absoluta e o total de observações <span class="math">\((n)\)</span>. Esta medida é acrescentada à tabela para facilitar a comparação da frequência entre as categorias da variável e possibilita comparar tabelas de frequências (para uma mesma variável) com totais <span class="math">\((n)\)</span> diferentes.</p>
+<p>Também podemos construir tabelas de frequências para variáveis quantitativas. Em geral, é necessário dividir o intervalo de possíveis valores dessa variável em classes.</p>
 </div>
 <div id="exemplo-2" class="section level3">
 <h3>Exemplo 2</h3>
+<p>Vamos considerar a variável <em>fração de ejeção</em> do banco de dados do Instuto do Coração. Lembrando que essa variável pode variar entre 0 e 100%, vamos dividir esse intervalo em duas classes: [0, 55) e [55, 100].</p>
+<table>
+<thead>
+<tr class="header">
+<th align="center">Classes</th>
+<th align="center">Frequência <span class="math">\((n_i)\)</span></th>
+<th align="center">Proporção <span class="math">\((n_i)\)</span></th>
+<th align="center">Proporção (%)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">[0,55)</td>
+<td align="center">237</td>
+<td align="center">0,798</td>
+<td align="center">79,8%</td>
+</tr>
+<tr class="even">
+<td align="center">[55,100]</td>
+<td align="center">60</td>
+<td align="center">0,202</td>
+<td align="center">20,2%</td>
+</tr>
+<tr class="odd">
+<td align="center"><strong>Total</strong></td>
+<td align="center"><strong>297</strong></td>
+<td align="center"><strong>1</strong></td>
+<td align="center"><strong>100%</strong></td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 </div>
 
-<div id="disqus_thread"></div>
+
+              <div id="disqus_thread"></div>
             </li>
           </ol>
           <div class="pagination">

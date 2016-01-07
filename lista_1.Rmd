@@ -11,7 +11,7 @@ c) Número de respostas certas de alunos num teste com dez itens.
 d) Temperatura diária da cidade de Rio Branco (AC).
 e) Porcentagem da receita de municípios aplicada em educação.
 f) Número de gols sofridos pelo SPFC no próximo jogo contra o Corinthians.
-g) Candidato à prefeito preferido para as próximas eleições.
+g) Candidato a prefeito preferido para as próximas eleições.
 h) Resultado de um exame realizado para detectar uma determinada doença.
 
 2. Sendo $\bar{x} = \frac{\sum_{i=1}^n x_i}{n}$, mostre que:
@@ -35,6 +35,6 @@ d) de cada observação subtrai-se $\bar{x}$ e divide-se pelo desvio padrão dp(
 
 2014: 67 59 53 49 51 61 36 43 42 46 36 38 37 42 39 34 37 31 31 28
 
-a) Encontre o mínimo, o primeiro quartil, a mediana, o terceiro quartil, o máximo e o distância interquartil.
+a) Encontre o mínimo, o primeiro quartil, a mediana, o terceiro quartil, o máximo e a distância interquartil.
 
 b) Esboce (no mesmo gráfico) os boxplots. Analise o gráfico.

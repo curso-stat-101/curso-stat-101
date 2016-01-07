@@ -46,4 +46,32 @@ Com o objetivo de analisar o comportamento das variáveis em estudo, uma ideia i
 
 ### Exemplo 1
 
+Vamos considerar as seguintes tabelas de frequência para a variável qualitativa
+
+X: diretor preferido entre as opções {Tarantino, Scorsese, Nolan, Fincher}.
+
+
+|  Diretor  | Frequência $(n_i)$ | Proporção $(f_i)$ | Proporção (%) |
+|:---------:|:----------------:|:---------------:|:-------------:|
+| Tarantino |        33        |       0,33      |      33%      |
+|  Scorsese |        22        |       0,22      |      22%      |
+|   Nolan   |        35        |       0,35      |      35%      |
+| Fincher   |        10        |       0,1       |      10%      |
+|   **Total**   |        **100**       |        **1**        |      **100%**     |
+
+
+A **frequência absoluta** $(n_i)$ representa quantas observações há em cada categoria da variável.
+
+A **proporção** ou **frequência relativa** é a razão entre a frequência absoluta e o total de observações $(n)$. Esta medida é acrescentada à tabela para facilitar a comparação da frequência entre as categorias da variável e possibilita comparar tabelas de frequências (para uma mesma variável) com totais $(n)$ diferentes.
+
+Também podemos construir tabelas de frequências para variáveis quantitativas. Em geral, é necessário dividir o intervalo de possíveis valores dessa variável em classes.
+
 ### Exemplo 2
+
+Vamos considerar a variável *fração de ejeção* do banco de dados do Instuto do Coração. Lembrando que essa variável pode variar entre 0 e 100%, vamos dividir esse intervalo em duas classes: [0, 55) e [55, 100].
+
+|   Classes   | Frequência $(n_i)$ | Proporção $(n_i)$ | Proporção (%) |
+|:-----------:|:------------------:|:-----------------:|:-------------:|
+|   [0,55)  |         237        |       0,798       |     79,8%     |
+| [55,100] |         60         |       0,202       |     20,2%     |
+|    **Total**    |         **297**        |         **1**         |      **100%**     |
