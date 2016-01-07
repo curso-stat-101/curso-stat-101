@@ -14,6 +14,8 @@ library(pander)
 library(ggplot2)
 library(dplyr)
 library(magrittr)
+library(lubridate)
+library(vcd)
 panderOptions("table.style", "rmarkdown")
 ```
 
@@ -107,7 +109,7 @@ r %>%
 ```
 
 
-## Histogramas
+## Histogramas {.smaller}
 
 Em vez de representar a frequência no eixo y, podemos optar pela densidade, definida pela razão entre a proporção e a amplitude de cada classe. Um histograma construído dessa forma tem área 1.
 
@@ -126,7 +128,7 @@ r %>%
 
 Assimetria à direita
 
-```{r, warning=FALSE, echo=FALSE}
+```{r, warning=FALSE, echo=FALSE, message = FALSE}
 
 rbeta(1000, 2, 5) %>% 
   data.frame(x = .) %>% 
@@ -140,7 +142,7 @@ rbeta(1000, 2, 5) %>%
 
 Assimetria à esquerda
 
-```{r, warning=FALSE, echo=FALSE}
+```{r, warning=FALSE, echo=FALSE, message = FALSE}
 
 rbeta(1000, 5, 2) %>% 
   data.frame(x = .) %>% 
@@ -196,4 +198,79 @@ Baseball %>%
   geom_point(aes(y = runs86, x = hits86)) +
   labs(x = "Número de rebatidas", y = "Número de corridas")
 
+```
+
+## Gráfico de uma série
+
+Vazão do rio Nilo de 1871 a 1970.
+
+```{r, warning=FALSE, echo=FALSE}
+
+Nile %>%
+  as.vector %>% 
+  data.frame(vazao = ., ano = 1871:1970) %>%
+  ggplot +
+  geom_line(aes(x = ano, y = vazao)) +
+  labs(x = "Ano", y = "Vazão")
+
+```
+
+## Gráfico de uma série
+
+Número de mortes acidentais nos EUA de 1973 a 1979.
+
+```{r, warning=FALSE, echo=FALSE}
+
+USAccDeaths %>%
+  as.vector %>% 
+  data.frame(mortes = ., 
+             ano = seq(parse_date_time('1973-01', "ym"),
+                       parse_date_time('1978-12', "ym"), by = 'months')) %>%
+  ggplot +
+  geom_line(aes(x = ano, y = mortes)) +
+  labs(x = "Ano", y = "Número de mortes acidentais")
+
+```
+
+## Gráficos mal construídos
+
+```{r, warning=FALSE, echo=FALSE}
+
+teste <- read.csv(file="dados_times.csv")
+
+pie(x = teste$torcedores, labels = teste$time)
+  
+```
+
+## Gráficos mal construídos
+
+```{r, warning=FALSE, echo=FALSE}
+
+boxplot(1)
+  
+```
+
+## Gráficos mal construídos
+
+```{r, warning=FALSE, echo=FALSE}
+
+data.frame(pref = c(45, 30, 25), partido = c("PSDB", "PT", "PMDB")) %>% 
+  ggplot +
+  geom_bar(aes(x = partido, y = pref), stat = "identity", width = 0.4, fill = "white",
+           color = "black") +
+   coord_cartesian(ylim=c(20,60)) +
+  labs(x = "Partido", y = "Preferência")
+  
+```
+
+## Gráficos mal construídos
+
+```{r, warning=FALSE, echo=FALSE}
+
+data.frame(pref = c(45, 30, 25), partido = c("PSDB", "PT", "PMDB")) %>% 
+  ggplot +
+  geom_bar(aes(x = partido, y = pref), stat = "identity", width = 0.4, fill = "white",
+           color = "black") +
+  labs(x = "Partido", y = "Preferência")
+  
 ```
