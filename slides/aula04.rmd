@@ -1,7 +1,7 @@
 ---
-title: "Aula 1 - Noções básicas"
-author: "Curso de R: Do casual ao avançado"
-date: "19 de janeiro de 2015"
+title: "Aula 4 - Noções básicas de R"
+author: "William Nilson de Amorim"
+date: "07 de janeiro de 2016"
 output: 
   ioslides_presentation:
     mathjax: "//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"
@@ -14,36 +14,12 @@ library(pander)
 panderOptions("table.style", "rmarkdown")
 ```
 
-## Agenda do curso {.smaller}
-
-<div class="red2">
-* Aula 00 - Sobre o curso e porque usar R
-* Aula 01 - Noções básicas
-* Aula 02 - Estruturas de Dados e Vocabulário
-* Aula 03 - Laboratório I
-</div>
-<div class="yellow3">
-* Aula 04 - Manipulação de dados
-* Aula 05 - Gráficos com estilo - ggplot2
-* Aula 06 - Laboratório II
-</div>
-<div class="blue2">
-* Aula 07 - Modelando
-* Aula 08 - Aula dos alunos
-* Aula 09 - Laboratório III
-</div>
-<div class="green2">
-* Aula 10 - Shiny
-* Aula 11 - Pacotes e tópicos extras
-* Aula 12 - Laboratório IV
-</div>
-
 ## Por que R? {.build}
 
 - De graça
 - Escrito por estatísticos, para estatísticos
 - Uma linguagem de programação
-- Atualizado e com grande gama de funções analíticas
+- Atualizado
 - Comunidade ativa e crescente
 
 ## Prós e contras do R vs. outros pacotes estatísticos
@@ -54,78 +30,11 @@ panderOptions("table.style", "rmarkdown")
 
 - SAS é mais preparado para grandes bases de dados. o R guarda tudo na memória
 - SAS/SPSS tem suporte dedicado e garantia das suas rotinas e ferramentas. O R não tem suporte oficial e não trás garantias.
-- SAS/SPSS está na praça há muito mais tempo do que o R
-- No SAS/SPSS não há necessidade de grandes investimentos em treinamento de pessoal para operar
-- SAS é um "canivete suíço". Ele é ferramenta analítica, governança corporativa, gestão e serviços de TI e etc.
 
-## Prós e contras do R vs. outros pacotes estatísticos
-
-<div class="red2">
-<strong>Para análise estatística, o R...</strong>
-</div>
-
-- permite analisar, manusear e limpar dados com mais facilidade e agilidade
-- possui sistema e pacotes de visualização de dados que é referência
-- tem, potencialmente, capacidade de interagir com qualquer software e linguagem de programação, inclusive com o SAS e Excel
-- facilita a análise de dados colaborativa
-
-## Prós e contras do R vs. outras linguagens
-
-- Das linguagens de programação, as mais populares para análise de dados são Python, Matlab/Octave e Java.
-- Python é o mais parecido com o R e também o com maior aderência entre os estatísticos
-- Métodos estatísticos básicos e consagrados podem ser feitos em todas essas linguagens. No Python, há mais opções
-
-## Prós e contras do R vs. Python
-
-<div class="green2">
-<strong>Vantagens do R</strong>
-</div>
-
-- O R é a única linguagem cujo foco de desenvolvimento é análise de dados
-- De um tempo para cá, TODOS os novos métodos estatísticos são escritos primeiro em R
-- Menor curva de aprendizado
-- Fácil assimilação entre a matemática e a implementação
-
-<div class="red2">
-<strong>Desvantagens do R</strong>
-</div>
-
-- Velocidade
-- Eficiência (uso da memória)
-
-## Prós e contras do R vs. Python
-
-<div class="green2">
-<strong>Vantagens do Python</strong>
-</div>
-
-- Mais desenvolvido na área de processamento de texto
-- Linguagem de programação completa de uso geral, própria para produção
-- Eficiente (não aloca dados na memória)
-
-<div class="red2">
-<strong>Desvantagens do Python</strong>
-</div>
-
-- Velocidade
-- Maior curva de aprendizado. Exige mais programação
-- O foco de desenvolvimento não é análise de dados
-
-## Prós e contras do R vs. Python
-
-<div>
-<strong>Considerações</strong>
-</div>
-
-- Via de regra, se você já tem destreza em alguma dessas linguagens de programação, continue nela... até bater em uma barreira.
-- Principal barreira do <span class="red2">R</span> é 
-eficiência
-- Principal barreira do <span class="blue2">Python</span> é disponibilidade de funções
-- Geralmente, bate-se na barreira do <span class="blue2">Python</span> antes da barreira do <span class="red2">R</span>
 
 ## Motivação
 
-- R está no Google, Facebook, Bank of America, Pfizer, [New York Times](http://www.nytimes.com/interactive/2013/03/29/sports/baseball/Strikeouts-Are-Still-Soaring.html?ref=baseball). Está no IBOPE, Itaú, IBGE, DIEESE
+- R está no Google, Facebook, Bank of America, [New York Times](http://www.nytimes.com/interactive/2013/03/29/sports/baseball/Strikeouts-Are-Still-Soaring.html?ref=baseball). Está no IBOPE, Itaú, IBGE, DIEESE.
 - Relatórios estatísticos profissionais e em vários formatos
 - Aplicativos interativos ([TJSP](http://23.21.159.27:3838/shinyABJ/tjsp))
 - Modelagem e técnicas estatísticas básicas e avançadas
@@ -134,10 +43,6 @@ eficiência
 
 - [R CRAN](http://cran.r-project.org/)
 - [RStudio](http://www.rstudio.com/)
-
-## Reconhecimento do RStudio
-
-<img src="http://www.rstudio.com/wp-content/uploads/2014/06/RStudio-Ball.png" style="width:200px; margin-left:290px; margin-top:100px"></img>
 
 ## Primeiro contato com o R
 
@@ -153,8 +58,6 @@ eficiência
 - Help / documentação
 - [Google it](http://bit.ly/1u7tlv1)
 - [Stack Overflow](http://stackoverflow.com/).
-- [Melhores práticas para postar no Stack Overflow](http://stackoverflow.com/help/how-to-ask).
-- Vamos utilizar o Stack Overflow para dúvidas durante o curso.
 
 ## R como calculadora
 
