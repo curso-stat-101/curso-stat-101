@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Material das aulas do curso</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="" />
+  <meta name="author" content="thewilliam89@gmail.com,curso-stat,Curso,STAT">
+  <link rel="shortcut icon" href="/assets/img/logo-ime.png">
+  <link rel="alternate" type="application/rss+xml" href="">
+  <link href="../libraries/frameworks/purus/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="../libraries/frameworks/purus/css/bootstrap-responsive.min.css" rel="stylesheet" />
+  <link href="../libraries/frameworks/purus/css/main.css" rel="stylesheet" />
+  <link href="../libraries/highlighters/prettify/css/twitter-bootstrap.css" rel="stylesheet">
+  <!-- IE6-8 support of HTML5 elements -->
+  <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+  <link href='http://fonts.googleapis.com/css?family=Raleway:400,600,200,800' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Droid+Sans' rel='stylesheet' type='text/css'>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+  
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  
+    ga('create', 'UA-58167912-1', 'auto');
+    ga('send', 'pageview');
+  
+  </script>
+    <style>
+	  #sidebar .sidebar-nav .info h3 a:hover, a:hover { color: #01A9DB; }
+	  #sidebar .sidebar-nav #avatar img, #sidebar .sidebar-nav ul#links li.active a { border-color: #01A9DB; }
+	  #sidebar .sidebar-nav ul#links li a:hover { background: #01A9DB; }
+    p {text-align: justify;}
+  </style>
+  <link rel="stylesheet" href = "../assets/css/custom.css">
+<link rel="stylesheet" href = "../assets/css/ribbons.css">
+
+</head>
+<body>
+	<div class="container-fluid">
+		<div class="row-fluid">
+			<div id="sidebar" class="span2">
+			  <div class="sidebar-nav sidebar-nav-fixed">
+			    <a href="https://github.com/ramnathv/poirot">
+      <img style="position: absolute; top: 0; left: 100px; border: 0; height: 100px; z-index: 1;" 
+        alt="Fork me on GitHub" 
+        src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" >
+    </a>
+	  <div class="info">
+				    <p id="avatar"><a href="#"><img alt="Title" src="http://curso-stat.github.io/assets/img/logo-ime.png" /></a></p>
+				    <h3><a href="/">IME-USP</a></h3>
+					  <p class="description">Verao 2016</p>
+					</div>
+					<ul id="links">
+			        <li><a href="http://curso-stat.github.io/index.html">Home</a></li>
+        <li><a href="http://curso-stat.github.io/about.html">Sobre</a></li>
+        <li><a href="http://curso-stat.github.io/links.html">Links Úteis</a></li>
+        
+        <li><a href="http://github.com/curso-stat" id="Github-link">Github</a></li>
+                      
+			    </ul>
+				</div>
+			</div>
+						<div id="content" class='span10'>
+				<div id="post-wrapper">
+          <ol id="posts">
+            <li class="post">
+              <h3>
+                <a href="#">Aula 00 - Apresentação do curso e background matemático</a>
+              </h3>
+              <span>2015-02-02</span><br/>
+               <a class='label label-success' href='posts/aula00.Rmd'>Source</a>
+
+
+
+
+<div id="TOC">
+<ul>
+<li><a href="#medidas-de-posicao-central">Medidas de posição central</a><ul>
+<li><a href="#media-aritmetica">Média aritmética</a><ul>
+<li><a href="#exemplo">Exemplo</a></li>
+</ul></li>
+<li><a href="#mediana">Mediana</a><ul>
+<li><a href="#exemplo-1-numero-impar-de-observacoes">Exemplo 1 (número ímpar de observações)</a></li>
+<li><a href="#exemplo-2-numero-par-de-observacoes">Exemplo 2 (número par de observações)</a></li>
+</ul></li>
+<li><a href="#moda">Moda</a><ul>
+<li><a href="#exemplo-1">Exemplo</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#medidas-de-dispersao">Medidas de dispersão</a><ul>
+<li><a href="#variancia">Variância</a></li>
+<li><a href="#desvio-padrao">Desvio padrão</a></li>
+</ul></li>
+<li><a href="#quantis">Quantis</a></li>
+<li><a href="#medidas-de-associacao-entre-duas-variaveis">Medidas de associação entre duas variáveis</a><ul>
+<li><a href="#associacao-entre-variaveis-qualitativas">Associação entre variáveis qualitativas</a><ul>
+<li><a href="#exemplo-2">Exemplo</a></li>
+</ul></li>
+<li><a href="#associacao-entre-variaveis-quantitativas">Associação entre variáveis quantitativas</a></li>
+</ul></li>
+</ul>
+</div>
+
+<div id="medidas-de-posicao-central" class="section level1">
+<h1>Medidas de posição central</h1>
+<p>As medidas de posição central trazem informação sobre a localização dos dados no seu conjunto de possíveis valores, mais especificamente, onde estão centrados.</p>
+<div id="media-aritmetica" class="section level2">
+<h2>Média aritmética</h2>
+<p>A média aritmética é definida pela soma das observações dividida pelo número total de observações.</p>
+<div id="exemplo" class="section level3">
+<h3>Exemplo</h3>
+<p>Sejam <span class="math">\(x_1, ..., x_n\)</span> <span class="math">\(n\)</span> observações de uma variável <span class="math">\(X\)</span> qualquer. A média é dada pela expressão</p>
+<p><span class="math">\(\frac{\sum_{i=1}^{n}x_i}{n} = \frac{x_1 + x_2 + ... + x_n}{n}\)</span></p>
+</div>
+</div>
+<div id="mediana" class="section level2">
+<h2>Mediana</h2>
+<p>A mediana é a observação que ocupa a posição central dos dados, quando estão ordenados de forma crescente.</p>
+<div id="exemplo-1-numero-impar-de-observacoes" class="section level3">
+<h3>Exemplo 1 (número ímpar de observações)</h3>
+<p>Vamos considerar o seguinte conjunto de observações: 3, 7, 10, 5, 2, 1, 1.</p>
+<p>Para calcular a mediana, primeiramente ordenamos os dados: 1, 1, 2, 3, 5, 7, 10.</p>
+<p>É fácil verificar que a observação que ocupa a posição central é o valor 3. Portanto, 3 é a mediana desse conjunto de valores.</p>
+</div>
+<div id="exemplo-2-numero-par-de-observacoes" class="section level3">
+<h3>Exemplo 2 (número par de observações)</h3>
+<p>Vamos considerar agora o seguinte conjunto de observações: 15, 3, 2, 0, 9, 17.</p>
+<p>Ordenanando os dados, temos: 0, 2, 3, 9, 15, 17.</p>
+<p>Neste caso, a mediana será dada pela média entre as duas observações centrais, isto é, (3 + 9)/2 = 6.</p>
+</div>
+</div>
+<div id="moda" class="section level2">
+<h2>Moda</h2>
+<p>A moda é a observação mais frequente do conjunto de valores observados.</p>
+<div id="exemplo-1" class="section level3">
+<h3>Exemplo</h3>
+<p>No conjunto de observações {3, 5, 10, 11, 11, 20}, a observação 11 aparece 2 vezes enquanto as demais apenas 1 vez. Portanto, 11 é a moda desse conjunto.</p>
+</div>
+</div>
+</div>
+<div id="medidas-de-dispersao" class="section level1">
+<h1>Medidas de dispersão</h1>
+<p>O resumo de um conjunto de dados por uma única medida de posição central não traz informação sobre a variabilidade das observações.</p>
+<p>Um critério frequentemente usado para avaliar a dispersão de um conjunto de observações é aquele que mede a dispersão dos dados em torno da sua média.</p>
+<div id="variancia" class="section level2">
+<h2>Variância</h2>
+<p>Sejam <span class="math">\(x_1, x_2, ..., x_n\)</span> <span class="math">\(n\)</span> observações de uma variável quantitativa <span class="math">\(X\)</span>. Seja <span class="math">\(\bar{x}\)</span> a média dessas observações.</p>
+<p>Vamos observar, então, os desvios das observações em relação à média <span class="math">\(\bar{x}\)</span>, isto é, <span class="math">\(x_i - \bar{x}\)</span>, para <span class="math">\(i = 1, ..., n\)</span>.</p>
+<p><strong>Ideia 1</strong>: usar como medida de dispersão a soma desses desvios, isto é,</p>
+<p><span class="math">\[
+\sum_{i=1}^{n}(x_i - \bar{x}).
+\]</span></p>
+<p><strong>Problema 1</strong>: para qualquer conjunto de observações</p>
+<p><span class="math">\[
+\sum_{i=1}^{n}(x_i - \bar{x}) = 0.
+\]</span></p>
+<p><strong>Ideia 2</strong>: considerar a soma do quadrado dos desvios, dada por</p>
+<p><span class="math">\[
+\sum_{i=1}^{n}(x_i - \bar{x})^2
+\]</span></p>
+<p><strong>Problema 2</strong>: não podemos comparar conjuntos de observações de tamanhos diferentes.</p>
+<p><strong>Ideta 3</strong>: utilizar a média desses desvios quadráticos.</p>
+<p>Sendo assim, definimos a medida de dispersão conhecida como <strong>variância</strong> da seguinte forma:</p>
+<p><span class="math">\[
+VAR(X) = \frac{\sum_{i=1}^{n}(x_i - \bar{x})^2}{n}
+\]</span></p>
+</div>
+<div id="desvio-padrao" class="section level2">
+<h2>Desvio padrão</h2>
+<p>A utilização da variância como medida de dispersão pode ainda causar um problema de interpretação, pois a sua dimensão é igual ao quadrado da dimensão dos dados. Sendo assim, costuma-se usar o desvio padrão, defino por</p>
+<p><span class="math">\[
+DP(X) = \sqrt{VAR(X)} = \sqrt{\frac{\sum_{i=1}^{n}(x_i - \bar{x})^2}{n}}.
+\]</span></p>
+</div>
+</div>
+<div id="quantis" class="section level1">
+<h1>Quantis</h1>
+<p>Vimos que a mediana é uma medida que deixa metade dos dados abaixo dela e metade acima. De modo geral, podemos definir a medida <span class="math">\(q_p\)</span>, <span class="math">\(0 &lt; p &lt; 100\)</span>, tal que <span class="math">\(p%\)</span> das observações sejam menores que <span class="math">\(q_p\)</span>. Esta medida é chamada de quantil de ordem <span class="math">\(p\)</span>.</p>
+<p>Alguns quantis são bastante utilizados na prática. São eles</p>
+<p><span class="math">\(Q1 = q_{25\%}\)</span> (primeiro quartil)</p>
+<p><span class="math">\(Q2 = q_{50\%}\)</span> (mediana)</p>
+<p><span class="math">\(Q3 = q_{75\%}\)</span> (terceiro quartil)</p>
+<p>Observe que os <span class="math">\(q_{0\%}\)</span> e <span class="math">\(q_{100\%}\)</span> denotam, respectivamente, o mínimo e o máximo de conjunto de dados.</p>
+</div>
+<div id="medidas-de-associacao-entre-duas-variaveis" class="section level1">
+<h1>Medidas de associação entre duas variáveis</h1>
+<div id="associacao-entre-variaveis-qualitativas" class="section level2">
+<h2>Associação entre variáveis qualitativas</h2>
+<p>Para investigar a associação entre duas variáveis qualitativas, podemos utilizar <strong>tabelas de contingência</strong>.</p>
+<div id="exemplo-2" class="section level3">
+<h3>Exemplo</h3>
+<p>Vamos considerar as seguintes variáveis</p>
+<p>X: salas do terceiro ano do ensino médio</p>
+<p>Y: conceitos finais na disciplina de matemática</p>
+<table>
+<thead>
+<tr class="header">
+<th align="center">Variáveis</th>
+<th align="center">A</th>
+<th align="center">B</th>
+<th align="center">C</th>
+<th align="center">Total</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">A</td>
+<td align="center">20 (69%)</td>
+<td align="center">16 (49%)</td>
+<td align="center">10 (37%)</td>
+<td align="center">46 (51%)</td>
+</tr>
+<tr class="even">
+<td align="center">B</td>
+<td align="center">6 (21%)</td>
+<td align="center">6 (18%)</td>
+<td align="center">1 (4%)</td>
+<td align="center">13 (15%)</td>
+</tr>
+<tr class="odd">
+<td align="center">C</td>
+<td align="center">2 (7%)</td>
+<td align="center">1 (3%)</td>
+<td align="center">10 (37%)</td>
+<td align="center">13 (15%)</td>
+</tr>
+<tr class="even">
+<td align="center">D</td>
+<td align="center">1 (3%)</td>
+<td align="center">10 (30%)</td>
+<td align="center">6 (22%)</td>
+<td align="center">17 (19%)</td>
+</tr>
+<tr class="odd">
+<td align="center">Total</td>
+<td align="center">29 (100%)</td>
+<td align="center">33 (100%)</td>
+<td align="center">27 (100%)</td>
+<td align="center">89 (100%)</td>
+</tr>
+</tbody>
+</table>
+<p>Analisando a tabela acima, verificamos que a proporção de alunos com boas notas é maior nas classes I e II. De uma forma mais geral, dizemos que as duas variáveis estão associadas.</p>
+</div>
+</div>
+<div id="associacao-entre-variaveis-quantitativas" class="section level2">
+<h2>Associação entre variáveis quantitativas</h2>
+<p>Vamos definir uma medida para quantificar a associação entre duas variáveis quantitativas. Vale lembrar que existem vários tipos de associação. Aqui, vamos considerar o tipo mais simples: <em>a relação linear</em>.</p>
+<p>Vamos considerar um conjunto de observações bivariadas <span class="math">\((x_1, y_1), ..., (x_n, y_n)\)</span>.</p>
+<p>O <em>coeficiente de relação linear</em> é dado por</p>
+<p><span class="math">\[
+Corr(X, Y) = \frac{1}{n} \sum_{i=1}^{n} \left( \frac{(x_i - \bar{x})}{DP(X)}  \right) \left( \frac{(y_i - \bar{y})}{DP(Y)}  \right).
+\]</span></p>
+</div>
+</div>
+
+
+
+
+
+              <div id="disqus_thread"></div>
+            </li>
+          </ol>
+          <div class="pagination">
+            <ul>
+              <li><a href="http://curso-stat.github.io">&#171; Back Home</a></li>
+            </ul>
+          </div> 
+        </div>
+			</div>
+		</div>
+  </div>
+</body>
+  <script src='../libraries/frameworks/purus/js/bootstrap.min.js'></script>
+  <div id="disqus_thread"></div>
+<script>
+/**
+* RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+* LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+*/
+
+var disqus_config = function () {
+this.page.url = 'http://curso-stat.github.io/posts/aula00'; // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = 'STAT589352400'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+
+s.src = '//cursostat.disqus.com/embed.js';
+
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+  <!-- MathJax: Fall back to local if CDN offline but local image fonts are not supported (saves >100MB) -->
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [['$','$'], ['\\(','\\)']],
+        processEscapes: true
+      }
+    });
+  </script>
+  <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/2.0-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  <!-- <script src="https://c328740.ssl.cf1.rackcdn.com/mathjax/2.0-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  </script> -->
+  <script>window.MathJax || document.write('<script type="text/x-mathjax-config">MathJax.Hub.Config({"HTML-CSS":{imageFont:null}});<\/script><script src="libraries/widgets/mathjax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"><\/script>')
+</script>
+<!-- Google Prettify -->
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/prettify/188.0.0/prettify.js"></script>
+  <script src='../libraries/highlighters/prettify/js/lang-r.js'></script>
+  <script>
+    var pres = document.getElementsByTagName("pre");
+    for (var i=0; i < pres.length; ++i) {
+      pres[i].className = "prettyprint linenums";
+    }
+    prettyPrint();
+  </script>
+  <!-- End Google Prettify --> 
+  </html>
