@@ -1,5 +1,5 @@
 ---
-title: "Lista de exercícios 1"
+title: "Lista de exercícios 1 - Entregar dia 13/01"
 output: pdf_document
 ---
 

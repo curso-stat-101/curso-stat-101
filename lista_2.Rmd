@@ -1,0 +1,25 @@
+---
+title: "Lista de exercícios 2 - Entregar dia 22/01"
+output: pdf_document
+---
+
+\pagenumbering{gobble}
+
+
+\ \
+
+1. Os colégios $A$, $B$ e $C$ têm as seguintes porcentagens de rapazes, respectivamente, 40%, 20% e 10%. Um desses colégios é selecionado ao acaso e oito alunos são escolhidos, com reposição. Se o resultado for $RRRMMMMM$ ($R$ para rapaz e $M$ para moça), qual é a probabilidade de ter sido selecionado o colégio $C$?
+
+2. Prove que, se $A$ e $B$ são independentes, também o serão $A^c$ e $B^c$; $A$ e $B^c$; e $A^c$ e $B$.
+
+3. Um curso de treinamento aumenta a produtividade de uma certa população de funcionários em 80% dos casos. Se dez funcionários quaisquer participam desse curso, encontre a probabilidade de:
+
+a) exatamente sete funcionários aumentarem a produtividade;
+b) não mais do que oito funcionários aumentarem a produtividade; e
+c) pelo menos três funcionários não aumentarem a produtividade.
+
+4. Uma enchedora automática de garrafas de refrigerantes está regulada para que o volume médio de líquido em cada garrafa seja de 1000 cm³ e o desvio padrão de 10 cm³. Pode-se admitir que a variável volume seja normal. 
+
+a) Qual é a porcentagem de garrafas em que o volume de líquido é menor que 990 cm³?
+b) Qual é a porcentagem das garrafas em que o volume líquido não se desvia da média em mais que dois desvios padrões?
+c) O que acontecerá com a porcentagem do item (b) se a máquina for regulada de forma que a média seja 1200 cm³ e o desvio padrão 20 cm³?

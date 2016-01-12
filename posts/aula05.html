@@ -8,10 +8,10 @@
   <meta name="author" content="thewilliam89@gmail.com,curso-stat,Curso,STAT">
   <link rel="shortcut icon" href="/assets/img/logo-ime.png">
   <link rel="alternate" type="application/rss+xml" href="">
-  <link href="libraries/frameworks/purus/css/bootstrap.min.css" rel="stylesheet" />
-  <link href="libraries/frameworks/purus/css/bootstrap-responsive.min.css" rel="stylesheet" />
-  <link href="libraries/frameworks/purus/css/main.css" rel="stylesheet" />
-  <link href="libraries/highlighters/prettify/css/twitter-bootstrap.css" rel="stylesheet">
+  <link href="../libraries/frameworks/purus/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="../libraries/frameworks/purus/css/bootstrap-responsive.min.css" rel="stylesheet" />
+  <link href="../libraries/frameworks/purus/css/main.css" rel="stylesheet" />
+  <link href="../libraries/highlighters/prettify/css/twitter-bootstrap.css" rel="stylesheet">
   <!-- IE6-8 support of HTML5 elements -->
   <!--[if lt IE 9]>
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -37,8 +37,8 @@
 	  #sidebar .sidebar-nav ul#links li a:hover { background: #01A9DB; }
     p {text-align: justify;}
   </style>
-  <link rel="stylesheet" href = "assets/css/custom.css">
-<link rel="stylesheet" href = "assets/css/ribbons.css">
+  <link rel="stylesheet" href = "../assets/css/custom.css">
+<link rel="stylesheet" href = "../assets/css/ribbons.css">
 
 </head>
 <body>
@@ -71,114 +71,66 @@
           <ol id="posts">
             <li class="post">
               <h3>
-                <a href="#">Uma Introdução à Análise Exploratória de Dados e Métodos Estatísticos</a>
+                <a href="#">Aula 05 - Conceitos básicos de probabilidade</a>
               </h3>
-              <span></span><br/>
-              
-              
-<style>
-ul.posts {
-  margin-top: 15px;
-}
-ul.posts li {
-  list-style: none
-}
-ul.posts hr {
-  margin: 5px 5px;
-}
-ul.posts span {
-  font-size: 12px;
-  color: #999;
-}
-</style>
+              <span>2016-01-11</span><br/>
+               <a class='label label-success' href='posts/aula00.Rmd'>Source</a>
 
-<ul class="posts">
-  
- <li>
-  <span class='pull-right'>2016-01-04</span> 
-  <a href="http://curso-stat.github.io/programa.pdf">Programa do curso</a>
-  <hr/>
- </li>
 
- <li>
-  <span class='pull-right'>2016-01-04</span> 
-  <a href="http://curso-stat.github.io/posts/aula00.html">Aula 00 - Apresentação do curso e base matemática</a>
-  <hr/>
- </li>
- 
- <li>
-  <span class='pull-right'>2016-01-05</span> 
-  <a href="http://curso-stat.github.io/posts/aula01.html">Aula 01 - Tipos de variáveis e distribuição de frequência</a>
-  <hr/>
- </li>
- 
- <li>
-  <span class='pull-right'>2016-01-06</span> 
-  <a href="http://curso-stat.github.io/posts/aula02.html">Aula 02 - Medidas resumo</a>
-  <hr/>
- </li>
- 
- <li>
-  <span class='pull-right'>2016-01-07</span> 
-  <a href="http://curso-stat.github.io/slides/aula03.html">Aula 03 - Gráficos</a>
-  <hr/>
- </li>
- 
- <li>
-  <span class='pull-right'>2016-01-08</span> 
-  <a href="http://curso-stat.github.io/slides/aula04.html">Aula 04 - Noções básicas de R</a>
-  <hr/>
- </li>
- 
-  <li>
-  <span class='pull-right'>2016-01-11</span> 
-  <a href="https://williamorim.shinyapps.io/analise-frascos/">Exemplo de um shinyapp</a>
-  <hr/>
- </li>
- 
- <li>
-  <span class='pull-right'>2016-01-04</span> 
-  <a href="http://curso-stat.github.io/lista_1.pdf">Lista 1</a>
-  <hr/>
- </li>
- 
-  <li>
-  <span class='pull-right'>2016-01-11</span> 
-  <a href="http://curso-stat.github.io/slides/aula05.html">Aula 05 - Conceitos básicos de probabilidade</a>
-  <hr/>
- </li>
- 
-  <li>
-  <span class='pull-right'>2016-01-12</span> 
-  <a href="http://curso-stat.github.io/slides/aula06.html">Aula 06 - Independência e condicionalidade</a>
-  <hr/>
- </li>
- 
-  <li>
-  <span class='pull-right'>2016-01-13</span> 
-  <a href="http://curso-stat.github.io/slides/aula07.html">Aula 07 - Variáveis aleatórias</a>
-  <hr/>
- </li>
- 
-  <li>
-  <span class='pull-right'>2016-01-14</span> 
-  <a href="http://curso-stat.github.io/slides/aula08.html">Aula 08 - Distribuições discretas</a>
-  <hr/>
- </li>
 
-  <li>
-  <span class='pull-right'>2016-01-15</span> 
-  <a href="http://curso-stat.github.io/slides/aula09.html">Aula 09 - Distribuições contínuas</a>
-  <hr/>
- </li>
- 
- <li>
-  <span class='pull-right'>2016-01-11</span> 
-  <a href="http://curso-stat.github.io/lista_2.pdf">Lista 2</a>
-  <hr/>
- </li>
- 
+
+
+<div id="TOC">
+<ul>
+<li><a href="#probabilidade">Probabilidade</a><ul>
+<li><a href="#espaco-amostral">Espaço amostral</a></li>
+<li><a href="#uniao-e-interseccao-de-eventos">União e intersecção de eventos</a></li>
+<li><a href="#particao-de-um-espaco-amostral">Partição de um espaço amostral</a></li>
+<li><a href="#algumas-propriedades">Algumas propriedades</a></li>
+<li><a href="#chance">Chance</a></li>
+</ul></li>
 </ul>
+</div>
+
+<div id="probabilidade" class="section level1">
+<h1>Probabilidade</h1>
+<p>A interpretação da probabilidade pode variar de pessoa para pessoa. Para alguns, a probabilidade é vista como o limite de uma sequência de frequências relativas. Essa é a visão frequentista da probabilidade. Para outros, a probabilidade é uma medida subjetiva de incerteza. Essa é a visão Bayesiana.</p>
+<div id="espaco-amostral" class="section level3">
+<h3>Espaço amostral</h3>
+<p><strong>Definição</strong>. O espaço amostral, comumente denotado por <span class="math">\(\Omega\)</span>, é o conjunto de todos os possíveis resultados de um <em>experimento aleatório</em>.</p>
+<p>Chamamos de <strong>evento</strong> qualquer subconjunto de interesse do espaço amostral.</p>
+<p><strong>Definição</strong>. Chamamos de evento complementar do evento <span class="math">\(A\)</span>, simbolicamente <span class="math">\(A^c\)</span>, o conjunto formado por todos os elementos que não pertencem a <span class="math">\(A\)</span>.</p>
+</div>
+<div id="uniao-e-interseccao-de-eventos" class="section level3">
+<h3>União e intersecção de eventos</h3>
+<p><strong>Definição</strong>. Chamamos de <em>união</em> dos eventos <span class="math">\(A\)</span> e <span class="math">\(B\)</span>, simbolicamente <span class="math">\(A \cup B\)</span>, o conjunto formado pelos elementos que pertencem ao evento <span class="math">\(A\)</span> ou ao evento <span class="math">\(B\)</span>.</p>
+<p><strong>Definição</strong>. Chamamos de intersecção dos eventos <span class="math">\(A\)</span> e <span class="math">\(B\)</span>, simbolicamente, <span class="math">\(A \cap B\)</span>, o conjunto formado pelos pontos que pertencem ao evento <span class="math">\(A\)</span> e ao evento <span class="math">\(B\)</span>.</p>
+</div>
+<div id="particao-de-um-espaco-amostral" class="section level3">
+<h3>Partição de um espaço amostral</h3>
+<p><strong>Definição</strong>. Sejam <span class="math">\(A_1, A_2, ..., A_n\)</span> uma coleção de eventos tais que <span class="math">\(A_1 \cup ...\cup A_n = \Omega\)</span> e <span class="math">\(A_1 \cap A_n = \varnothing\)</span>, <span class="math">\(\forall i \neq j\)</span>. Chamamos essa coleção de <strong>partição do espaço amostral</strong>.</p>
+</div>
+<div id="algumas-propriedades" class="section level3">
+<h3>Algumas propriedades</h3>
+<p>Seja <span class="math">\(A\)</span> um sub-conjunto de <span class="math">\(\Omega\)</span>.</p>
+<ol style="list-style-type: decimal">
+<li><span class="math">\(0 \leq P(A) \leq 1\)</span></li>
+<li><span class="math">\(P(\Omega) = 1\)</span> e <span class="math">\(P(\varnothing) = 0\)</span></li>
+<li><span class="math">\(P(A \cup B) = P(A) + P(B) - P(A \cap B)\)</span></li>
+</ol>
+</div>
+<div id="chance" class="section level3">
+<h3>Chance</h3>
+<p>A chance do evento <span class="math">\(A\)</span> é definida pela razão entre as probabilidades de ocorrência e não-ocorrência do evento, isto é,</p>
+<p><span class="math">\[
+\text{Chance de A} = \frac{P(A)}{P(A^c)} = \frac{P(\text{A ocorrer})}{P(\text{A não ocorrer})}.
+\]</span></p>
+<p>Observe que a chance de um evento pode variar de 0 a <span class="math">\(+ \infty\)</span>.</p>
+</div>
+</div>
+
+
+
 
               <div id="disqus_thread"></div>
             </li>
@@ -193,7 +145,7 @@ ul.posts span {
 		</div>
   </div>
 </body>
-  <script src='libraries/frameworks/purus/js/bootstrap.min.js'></script>
+  <script src='../libraries/frameworks/purus/js/bootstrap.min.js'></script>
   <div id="disqus_thread"></div>
 <script>
 /**
@@ -202,8 +154,8 @@ ul.posts span {
 */
 
 var disqus_config = function () {
-this.page.url = 'http://curso-stat.github.io'; // Replace PAGE_URL with your page's canonical URL variable
-this.page.identifier = 'STAT5893524'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+this.page.url = 'http://curso-stat.github.io/posts/aula00'; // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = 'STAT589352400'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
 };
 
 (function() { // DON'T EDIT BELOW THIS LINE
@@ -232,7 +184,7 @@ s.setAttribute('data-timestamp', +new Date());
 </script>
 <!-- Google Prettify -->
   <script src="http://cdnjs.cloudflare.com/ajax/libs/prettify/188.0.0/prettify.js"></script>
-  <script src='libraries/highlighters/prettify/js/lang-r.js'></script>
+  <script src='../libraries/highlighters/prettify/js/lang-r.js'></script>
   <script>
     var pres = document.getElementsByTagName("pre");
     for (var i=0; i < pres.length; ++i) {

@@ -1,0 +1,55 @@
+---
+title: "Referências"
+output:
+  html_document
+date: 2015-01-19
+---
+
+### Estatística básica
+
+Estatística Básica, 7ª edição. Wilton Bussab e Pedro Morettin. Editora Saraiva.
+
+Noções de Probabilidade e Estatística, 7ª edição. Marcos Nascimento Magalhães e Antonio Carlos Pedroso de Lima. EDUSP.
+
+### Regressão linear e ANOVA
+
+M. H. Kutner, C. J. Nachtsheim, J. Neter, Applied Linear Regression Models, 4th ed., Boston: McGraw-Hill, 2004.
+
+D. C. Montgomery, E. A. Peck, G. G. Vining, Introduction to Linear Regression Analysis, 4th ed., Hoboken: John Wiley, 2006.
+
+
+### Modelos lineares generalizados
+
+P. McCullagh, J. A. Nelder, Generalized Linear Models, 3rd ed., London: Chapman & Hall, 1989.
+
+Livro do professor Gilberto. [link](http://www.ime.usp.br/~giapaula/texto_2013.pdf)
+
+### Análise Multivariada
+
+R. A. Johnson, D. W. Wichern, Applied Multivariate Statistical Analysis, 6th ed., New Jersey: Prentice Hall, 2007.
+
+K. V. Mardia, J. T. Kent, J. Bibby, Multivariate Analysis, London: Academic Press, 1979.
+
+B. Everitt, An R and S-Plus Companion to Multivariate Analysis, London: Springer, 2005.
+
+### Séries temporais
+
+P. A. Morettin, C. M. C. Toloi, Análise de Séries Temporais, 2ª ed., São Paulo: Edgard Blücher, 2006.
+
+C. Chatfield, The Analysis of Time Series: an Introduction, 6th ed., Boca Raton: Chapman & Hall, 2004.
+
+
+### Análise de sobrevivência
+
+E. A. Colosimo, S. R. Giolo, Análise de Sobrevivência Aplicada, São Paulo: Edgard Blücher, 2006.
+
+### Análise Bayesiana
+
+A. O’Hagan, Bayesian Inference, London: Arnold, 1994.
+
+J. Albert, Bayesian Computation with R, New York: Springer, 2007.
+
+D. V. Lindley, Making Decisions, 2nd ed., London: John Wiley, 1988.
+
+### Big data
+
