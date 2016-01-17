@@ -71,9 +71,9 @@
           <ol id="posts">
             <li class="post">
               <h3>
-                <a href="#">Aula 00 - Apresentação do curso e background matemático</a>
+                <a href="#">Aula 08 - Distribuições discretas</a>
               </h3>
-              <span>2015-02-02</span><br/>
+              <span>2016-01-14</span><br/>
                <a class='label label-success' href='posts/aula00.Rmd'>Source</a>
 
 
@@ -82,56 +82,45 @@
 <div id="TOC">
 <ul>
 <li><a href="#distribuicao-uniforme">Distribuição Uniforme</a></li>
-<li><a href="#distribuicao-normal">Distribuição Normal</a><ul>
-<li><a href="#normal-padrao">Normal padrão</a></li>
-</ul></li>
-<li><a href="#distribuicao-exponencial">Distribuição Exponencial</a></li>
-<li><a href="#distribuicao-gama">Distribuição Gama</a></li>
+<li><a href="#distribuicao-bernoulli">Distribuição Bernoulli</a></li>
+<li><a href="#distribuicao-binomial">Distribuição Binomial</a></li>
+<li><a href="#distribuicao-de-poisson">Distribuição de Poisson</a></li>
 </ul>
 </div>
 
+<p></p>
 <div id="distribuicao-uniforme" class="section level2">
 <h2>Distribuição Uniforme</h2>
-<p>Sejam <span class="math">\(a\)</span> e <span class="math">\(b\)</span> números reais e <span class="math">\(X\)</span> uma variável aleatória com função densidade de probabilidade dada por</p>
+<p>A variável aleatória <span class="math">\(X\)</span>, assumindo os valores <span class="math">\(x_1, ..., x_n\)</span>, tem distribuição uniforme se</p>
 <p><span class="math">\[
-f(x) = \frac{1}{b-a}, \quad a &lt; x &lt; b.
+p(x_i) = P(X = x_i) = \frac{1}{n}, \forall 1, ..., n.
 \]</span></p>
-<p>Dizemos que <span class="math">\(X\)</span> segue a distribuição uniforme contínua no intervalo <span class="math">\((a,b)\)</span>. Simbolicamente, <span class="math">\(X \sim U(a,b)\)</span>.</p>
-<p>Temos que <span class="math">\(E(X) = \frac{a + b}{2}\)</span> e <span class="math">\(VAR(X) = \frac{(b-a)^2}{12}\)</span>.</p>
 </div>
-<div id="distribuicao-normal" class="section level2">
-<h2>Distribuição Normal</h2>
-<p>Seja <span class="math">\(X\)</span> uma variável aleatória contínua com função densidade de probabilidade dada por</p>
-<p><span class="math">\[
-f(x) = \frac{1}{\sqrt{2\pi}\sigma}e^{-\frac{(x - \mu)^2}{2\sigma^2}}
-\]</span></p>
-<p>Dizemos que <span class="math">\(X\)</span> segue a distribuição Normal com média <span class="math">\(\mu \in \mathbf{R}\)</span> e variância <span class="math">\(\sigma^2 &gt; 0\)</span>. Simbolicamente, <span class="math">\(X \sim N(\mu, \sigma^2)\)</span>.</p>
-<div id="normal-padrao" class="section level3">
-<h3>Normal padrão</h3>
-<p>Seja <span class="math">\(X \sim N(\mu, \sigma^2)\)</span> e <span class="math">\(Z\)</span> uma v. a. definida por</p>
-<p><span class="math">\[
-Z = \frac{X - \mu}{\sigma}.
-\]</span></p>
-<p>Então, <span class="math">\(Z \sim N(0,1)\)</span> é dita ser uma Normal padrão.</p>
+<div id="distribuicao-bernoulli" class="section level2">
+<h2>Distribuição Bernoulli</h2>
+<p>A variável aleatória <span class="math">\(X\)</span>, que assume apenas os valores 0 ou 1, com função de probabilidade dada por <span class="math">\(p(x) = p\)</span>, se <span class="math">\(x = 1\)</span>, e <span class="math">\(p(x) = 1 - p\)</span>, se <span class="math">\(x = 0\)</span>, é chamada v. a. de Bernoulli. Aqui, consideramos <span class="math">\(0 &lt; p &lt; 1\)</span>.</p>
+<p>Temos que <span class="math">\(E(X) = p\)</span> e <span class="math">\(VAR(X) = p(1 - p)\)</span>.</p>
 </div>
-</div>
-<div id="distribuicao-exponencial" class="section level2">
-<h2>Distribuição Exponencial</h2>
-<p>Seja <span class="math">\(\lambda &gt; 0\)</span> e <span class="math">\(X\)</span> uma variável aleatória com função densidade de probabilidade dada por</p>
+<div id="distribuicao-binomial" class="section level2">
+<h2>Distribuição Binomial</h2>
+<p>Sejam <span class="math">\(X_1, ..., X_n\)</span> <span class="math">\(n\)</span> variáveis aleatórias independentes com distribuição <span class="math">\(Bernoulli(p)\)</span>. A variável aleatória <span class="math">\(Y\)</span> definida por</p>
 <p><span class="math">\[
-f(x) = \lambda e^{-\lambda x}, \quad x &gt; 0.
+Y = \sum_{i=1}^{n} X_i
 \]</span></p>
-<p>Dizemos então que <span class="math">\(X\)</span> segue a distribuição exponencial. Simbolicamente, <span class="math">\(X \sim Exp(\lambda)\)</span>.</p>
-<p>Temos que <span class="math">\(E(X) = \frac{1}{\lambda}\)</span> e <span class="math">\(VAR(X) = \frac{1}{\lambda^2}\)</span>.</p>
-</div>
-<div id="distribuicao-gama" class="section level2">
-<h2>Distribuição Gama</h2>
-<p>Sejam <span class="math">\(a\)</span> e <span class="math">\(b\)</span> números reais positivos e <span class="math">\(X\)</span> uma variável aleatória com função densidade de probabilidade dada por</p>
+<p>tem distribuição Binomial. Simbolicamente, escrevemos <span class="math">\(Y \sim Binomial(n, p)\)</span>.</p>
+<p>A função de probabilidade de <span class="math">\(Y\)</span> é dada por</p>
 <p><span class="math">\[
-f(x) = \frac{b^a}{\Gamma (a)} x^{a-1} e^{-b x}, \quad x &gt; 0.
+p(x) = P(X = x) = \binom{n}{p} p^x (1-p)^{n-x}.
 \]</span></p>
-<p>Dizemos então que <span class="math">\(X\)</span> segue a distribuição Gama. Simbolicamente, <span class="math">\(X \sim Gama(a, b)\)</span>.</p>
-<p>Temos que <span class="math">\(E(X) = \frac{a}{b}\)</span> e <span class="math">\(VAR(X) = \frac{a}{b^2}\)</span>.</p>
+<p>Temos que <span class="math">\(E(X) = np\)</span> e <span class="math">\(VAR(X) = np(1 - p)\)</span>.</p>
+</div>
+<div id="distribuicao-de-poisson" class="section level2">
+<h2>Distribuição de Poisson</h2>
+<p>Dizemos que a v. a. <span class="math">\(X\)</span> tem distribuição Poisson com parâmetro <span class="math">\(\lambda &gt; 0\)</span> se</p>
+<p><span class="math">\[
+P(X = x) = \frac{\exp(- \lambda)\lambda^x}{x!}, \quad x = 0, 1, 2, ...
+\]</span></p>
+<p>Temos que <span class="math">\(E(X) = VAR(X) = \lambda\)</span>.</p>
 </div>
 
 
@@ -160,8 +149,8 @@ f(x) = \frac{b^a}{\Gamma (a)} x^{a-1} e^{-b x}, \quad x &gt; 0.
 */
 
 var disqus_config = function () {
-this.page.url = 'http://curso-stat.github.io/posts/aula00'; // Replace PAGE_URL with your page's canonical URL variable
-this.page.identifier = 'STAT589352400'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+this.page.url = 'http://curso-stat.github.io/posts/aula08'; // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = 'STAT589352408'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
 };
 
 (function() { // DON'T EDIT BELOW THIS LINE
