@@ -79,61 +79,6 @@
 
 
 
-<div id="TOC">
-<ul>
-<li><a href="#distribuicao-uniforme">Distribuição Uniforme</a></li>
-<li><a href="#distribuicao-normal">Distribuição Normal</a><ul>
-<li><a href="#normal-padrao">Normal padrão</a></li>
-</ul></li>
-<li><a href="#distribuicao-exponencial">Distribuição Exponencial</a></li>
-<li><a href="#distribuicao-gama">Distribuição Gama</a></li>
-</ul>
-</div>
-
-<div id="distribuicao-uniforme" class="section level2">
-<h2>Distribuição Uniforme</h2>
-<p>Sejam <span class="math">\(a\)</span> e <span class="math">\(b\)</span> números reais e <span class="math">\(X\)</span> uma variável aleatória com função densidade de probabilidade dada por</p>
-<p><span class="math">\[
-f(x) = \frac{1}{b-a}, \quad a &lt; x &lt; b.
-\]</span></p>
-<p>Dizemos que <span class="math">\(X\)</span> segue a distribuição uniforme contínua no intervalo <span class="math">\((a,b)\)</span>. Simbolicamente, <span class="math">\(X \sim U(a,b)\)</span>.</p>
-<p>Temos que <span class="math">\(E(X) = \frac{a + b}{2}\)</span> e <span class="math">\(VAR(X) = \frac{(b-a)^2}{12}\)</span>.</p>
-</div>
-<div id="distribuicao-normal" class="section level2">
-<h2>Distribuição Normal</h2>
-<p>Seja <span class="math">\(X\)</span> uma variável aleatória contínua com função densidade de probabilidade dada por</p>
-<p><span class="math">\[
-f(x) = \frac{1}{\sqrt{2\pi}\sigma}e^{-\frac{(x - \mu)^2}{2\sigma^2}}
-\]</span></p>
-<p>Dizemos que <span class="math">\(X\)</span> segue a distribuição Normal com média <span class="math">\(\mu \in \mathbf{R}\)</span> e variância <span class="math">\(\sigma^2 &gt; 0\)</span>. Simbolicamente, <span class="math">\(X \sim N(\mu, \sigma^2)\)</span>.</p>
-<div id="normal-padrao" class="section level3">
-<h3>Normal padrão</h3>
-<p>Seja <span class="math">\(X \sim N(\mu, \sigma^2)\)</span> e <span class="math">\(Z\)</span> uma v. a. definida por</p>
-<p><span class="math">\[
-Z = \frac{X - \mu}{\sigma}.
-\]</span></p>
-<p>Então, <span class="math">\(Z \sim N(0,1)\)</span> é dita ser uma Normal padrão.</p>
-</div>
-</div>
-<div id="distribuicao-exponencial" class="section level2">
-<h2>Distribuição Exponencial</h2>
-<p>Seja <span class="math">\(\lambda &gt; 0\)</span> e <span class="math">\(X\)</span> uma variável aleatória com função densidade de probabilidade dada por</p>
-<p><span class="math">\[
-f(x) = \lambda e^{-\lambda x}, \quad x &gt; 0.
-\]</span></p>
-<p>Dizemos então que <span class="math">\(X\)</span> segue a distribuição exponencial. Simbolicamente, <span class="math">\(X \sim Exp(\lambda)\)</span>.</p>
-<p>Temos que <span class="math">\(E(X) = \frac{1}{\lambda}\)</span> e <span class="math">\(VAR(X) = \frac{1}{\lambda^2}\)</span>.</p>
-</div>
-<div id="distribuicao-gama" class="section level2">
-<h2>Distribuição Gama</h2>
-<p>Sejam <span class="math">\(a\)</span> e <span class="math">\(b\)</span> números reais positivos e <span class="math">\(X\)</span> uma variável aleatória com função densidade de probabilidade dada por</p>
-<p><span class="math">\[
-f(x) = \frac{b^a}{\Gamma (a)} x^{a-1} e^{-b x}, \quad x &gt; 0.
-\]</span></p>
-<p>Dizemos então que <span class="math">\(X\)</span> segue a distribuição Gama. Simbolicamente, <span class="math">\(X \sim Gama(a, b)\)</span>.</p>
-<p>Temos que <span class="math">\(E(X) = \frac{a}{b}\)</span> e <span class="math">\(VAR(X) = \frac{a}{b^2}\)</span>.</p>
-</div>
-
 
 
 

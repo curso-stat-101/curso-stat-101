@@ -1,0 +1,127 @@
+---
+title: "Curso de verão 2016 - Uma Introdução à Análise Exploratória de Dados e Métodos Estatísticos"
+output: pdf_document
+---
+
+\begin{center}
+\textbf{Prova 1} --- 18/01/2016
+\end{center}
+
+```{r, echo=FALSE}
+library(magrittr)
+library(ggplot2)
+
+dados <- read.csv(file = "dados.csv")
+```
+
+1) Considere um banco de dados contendo informações de 30 modelos de carro. Destacamos as seguintes variáveis:
+
+Y: preço (dólares)
+
+$X_1$: comprimento (metros)
+
+$X_2$: potência do motor (cavalos)
+
+$X_3$: fabricação (nacional ou importado)
+
+a. Interprete o histograma da variável "comprimento". (1 ponto)
+
+```{r, echo=FALSE}
+
+dados %>% 
+  ggplot +
+  geom_histogram(aes(x = comprimento), binwidth = 0.3, color = "black", fill = "white") +
+  labs(x = "Comprimento", y = "Frequência")
+
+```
+
+
+b. Interprete o gráfico de dispersão da variável "preço" pela variável "potência do motor". (1 ponto)
+
+```{r, echo=FALSE}
+
+dados %>% 
+  ggplot +
+  geom_point(aes(x = motor, y = preco)) +
+  labs(x = "Potência do motor", y = "Preço")
+
+```
+
+c. Interprete o boxplot da variável "preço" pela variável "fabricação". (1 ponto)
+
+```{r, echo=FALSE}
+
+dados %>% 
+  ggplot +
+  geom_boxplot(aes(x = ni, y = preco)) +
+  labs(x = "Fabricação", y = "Preço")
+
+```
+
+2. O que é um espaço amostral? Dê um exemplo de um experimento aleatório (NÃO VALE LANÇAMENTO DE DADOS OU MOEDAS!), indique o seu espaço amostral e atribua probabilidades a cada um de seus elementos. (2 pontos)
+
+\ \
+
+3. Seja $X \sim Binomial (4, 0.4)$. Temos que
+
+\begin{center}
+$P(X = 0) = 0.13$
+
+$P(X = 1) = 0.35$
+
+$P(X = 2) = 0.35$
+
+$P(X = 3) = 0.15$
+
+$P(X = 4) = q$
+\end{center}
+
+a. O que representam os valores 4 e 0.4 como parâmetros desta Binomial? (1 ponto)
+
+b. Quanto vale $q$? (0.5 ponto)
+
+c. Qual a probabilidade de que $X$ valha pelo menos 3? (0.5 ponto)
+
+\ \ 
+
+4. Seja $X$ uma variável aleatória com distribuição $Normal(50, 36)$.
+
+a. Qual a mediana de X? Explique como chegou nesse valor. (0,5 ponto)
+
+b. Esboce o gráfico da função densidade de probabilidade ($f(x)$) de $X$. (0,5 ponto)
+
+c. Qual a probabilidade de $X$ ser maior que 50? (0,5 ponto)
+
+d. Se $Z$ segue a distribuição Normal padrão e sabemos que $P(Z > 1) = 0.1587$, qual a probabilidade de $X$ ser menor que 44? (0,5 ponto)
+
+\ \
+
+5. Sejam $X_1, ..., X_n$ variáveis aleatórias independentes com $X_i \sim N(\mu, \sigma^2)$, $i = 1, ..., n$. Considere a variável aleatória $\bar{X}$ definida por
+
+\[
+\bar{X} = \frac{\sum_{i=1}^{n} X_i}{n}.
+\]
+
+Encontre os valores de $E(\bar{X})$ e $VAR(\bar{X})$ em termos de $\mu$, $\sigma^2$ e $n$. (1 ponto)
+
+**Dica**. Utilize os seguintes resultados.
+
+**Resultado 1**. Se $X_1, ..., X_n$ são variáveis aleatórias independentes quaisquer, então 
+
+\[
+E\left(\sum_{i=1}^{n} X_i\right) = E(X_1 + X_2 + ... + X_n) = E(X_1) + E(X_2) + ... + E(X_n) = \sum_{i=1}^{n} E(X_i)
+\]
+e
+\[
+VAR\left(\sum_{i=1}^{n} X_i\right) = VAR(X_1 + X_2 + ... + X_n) = VAR(X_1) + VAR(X_2) + ... + VAR(X_n) = \sum_{i=1}^{n} VAR(X_i)
+\]
+
+**Resultado 2** Se $X$ é uma variável aleatória qualquer e $a$ é uma constante, então
+
+\[
+E(aX) = aE(X)
+\]
+e
+\[
+VAR(aX) = a^2VAR(X)
+\]

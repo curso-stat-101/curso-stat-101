@@ -23,3 +23,15 @@ c) pelo menos três funcionários não aumentarem a produtividade.
 a) Qual é a porcentagem de garrafas em que o volume de líquido é menor que 990 cm³?
 b) Qual é a porcentagem das garrafas em que o volume líquido não se desvia da média em mais que dois desvios padrões?
 c) O que acontecerá com a porcentagem do item (b) se a máquina for regulada de forma que a média seja 1200 cm³ e o desvio padrão 20 cm³?
+
+Para resolver o exercício 4, considere que, sendo $Z \sim N(0,1)$,
+
+\[
+P(Z < 2) = 0.9772
+\]
+\[
+P(Z < -1) = 0.1587
+\]
+\[
+P(Z < -2) = 0.0228
+\]
