@@ -1,0 +1,34 @@
+---
+title: "Lista de exercícios 3 - Entregar dia 29/01"
+output: pdf_document
+---
+
+\pagenumbering{gobble}
+
+
+\ \
+
+1. O que é uma amostra aleatória simples? Dê um exemplo.
+
+2. O que é um estimador não-enviesado? E consistente?
+
+3. Dado um intervalo de confiança (95%) para a média populacional $\mu$, por que é inadequado dizer que "a probabilidade de $\mu$ pertencer ao intervalo é 95%"?
+
+4. No contexto de testes de hipóteses, defina (com palavras):
+
+a) Erro do tipo I.
+
+b) Erro do tipo II.
+
+c) Poder do teste.
+
+d) Valor p.
+
+5. Dê um exemplo de um processo inferencial, isto é, defina
+
+i. a população sob estudo, explicitando quais são as unidades amostrais;
+ii. uma variável aleatória representando uma características de interesse;
+iii. a técnica de amostragem aplicada;
+iv. um modelo probabilístico para a variável aleatória, explicitando qual parâmetro será estimado; e
+v. um estimador para este parâmetro.
+
