@@ -30,5 +30,7 @@ i. a população sob estudo, explicitando quais são as unidades amostrais;
 ii. uma variável aleatória representando uma características de interesse;
 iii. a técnica de amostragem aplicada;
 iv. um modelo probabilístico para a variável aleatória, explicitando qual parâmetro será estimado; e
-v. um estimador para este parâmetro.
+v. um estimador para este parâmetro;
+vi. um intervalo de confiança e o interprete; e
+vii. um teste de hipóteses.
 
