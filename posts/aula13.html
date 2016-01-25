@@ -71,72 +71,101 @@
           <ol id="posts">
             <li class="post">
               <h3>
-                <a href="#">Referências</a>
+                <a href="#">Aula 00 - Apresentação do curso e background matemático</a>
               </h3>
               <span>2015-02-02</span><br/>
                <a class='label label-success' href='posts/aula00.Rmd'>Source</a>
 
 
 
+
+
 <div id="TOC">
 <ul>
-<li><a href="#estatistica-basica">Estatística básica</a></li>
-<li><a href="#regressao-linear-e-anova">Regressão linear e ANOVA</a></li>
-<li><a href="#modelos-lineares-generalizados">Modelos lineares generalizados</a></li>
-<li><a href="#analise-multivariada">Análise Multivariada</a></li>
-<li><a href="#series-temporais">Séries temporais</a></li>
-<li><a href="#analise-de-sobrevivencia">Análise de sobrevivência</a></li>
-<li><a href="#analise-bayesiana">Análise Bayesiana</a></li>
-<li><a href="#big-data">Big data</a></li>
+<li><a href="#construcao-de-um-teste-de-hipoteses">Construçao de um teste de hipóteses</a><ul>
+<li><a href="#hipoteses">Hipóteses</a></li>
+<li><a href="#erros">Erros</a></li>
+<li><a href="#estatistica-do-teste">Estatística do teste</a></li>
+<li><a href="#construcao-da-regiao-critica-e-conclusao-do-teste">Construção da região crítica e conclusão do teste</a></li>
+</ul></li>
+<li><a href="#poder-de-um-teste">Poder de um teste</a></li>
 </ul>
 </div>
 
-<div id="estatistica-basica" class="section level2">
-<h2>Estatística básica</h2>
-<p>Estatística Básica, 7ª edição. Wilton Bussab e Pedro Morettin. Editora Saraiva.</p>
-<p>Noções de Probabilidade e Estatística, 7ª edição. Marcos Nascimento Magalhães e Antonio Carlos Pedroso de Lima. EDUSP.</p>
-<p>Elements of statistical learning. <a href="http://statweb.stanford.edu/~tibs/ElemStatLearn/">link</a></p>
-<p>P values are not error probabilities. <a href="http://ftp.isds.duke.edu/WorkingPapers/03-26.pdf">(pdf)</a></p>
-<p>P values: what they are and what they are not. <a href="http://www.cs.ubc.ca/~murphyk/Teaching/CS532c_Fall04/Papers/schervish-pvalues.pdf">(pdf)</a></p>
+<div id="construcao-de-um-teste-de-hipoteses" class="section level2">
+<h2>Construçao de um teste de hipóteses</h2>
+<p>Vamos motivar a construçãode um teste de hipóteses a partir do seguinte exemplo.</p>
+<p>Há o interesse em saber se um astrólogo consegue acertar o signo de pessoas escolhidas ao acaso a partir de informações sobre a personalidade de cada uma delas.</p>
+<p><strong>Pergunta</strong>: o índice de acerto do astrólogo é maior que aquele que esperaríamos se ele estivesse respondendo ao acaso?</p>
+<p>Temos que a probabilidade de acertar um signo ao acaso é <span class="math">\(\frac{1}[12]\)</span>.</p>
+<p>Vamos supor que uma amostra de 100 pessoas de uma certa população foi coletada e informações sobre a personalidade de cada uma foram disponibilizadas. Sendo assim, baseado nessas informações, o astrólogo vai inferir o signo da pessoa e, então, podemos definir, para <span class="math">\(i = 1, ..., n\)</span>, a seguinte variável</p>
+<p><span class="math">\[
+X_i = 1, \text{ se ele acerta o signo da i-ésima pessoa e} \quad X_i = 0, \text{ caso contrário.}
+\]</span></p>
+<p>Portanto, <span class="math">\(X_i \sim Bernoulli(p)\)</span>, <span class="math">\(i = 1, ..., n\)</span>, e queremos fazer inferência sobre <span class="math">\(p\)</span>.</p>
+<div id="hipoteses" class="section level3">
+<h3>Hipóteses</h3>
+<p>Dado o problema apresentado, podemos pensar em testar as seguintes hipóteses</p>
+<p><span class="math">\(H_0\)</span>: “não existe relação entre o signo e a personalidade da pessoa” ou “o índice de acerto do astrólogo não é melhor do que o acaso (1/12)”; e</p>
+<p><span class="math">\(H_A\)</span>: “existe relação entre o signo e a personalidade da pessoa” ou “o índice de acerto do astrólogo é melhor do que o acaso (1/12)”.</p>
+<p>Matematicamente, podemos reescrever <span class="math">\(H_0\)</span> e <span class="math">\(H_A\)</span> como</p>
+<p><span class="math">\(H_0: p \leq \frac{1}{2}\)</span></p>
+<p><span class="math">\(H_A: p &gt; \frac{1}{2}\)</span>.</p>
+<p>No contexto de testes de hipóteses, chamamos <span class="math">\(H_0\)</span> de <em>hipótese nula</em> e <span class="math">\(H_A\)</span> de <em>hipótese alternativa</em>.</p>
 </div>
-<div id="regressao-linear-e-anova" class="section level2">
-<h2>Regressão linear e ANOVA</h2>
-<p>M. H. Kutner, C. J. Nachtsheim, J. Neter, Applied Linear Regression Models, 4th ed., Boston: McGraw-Hill, 2004.</p>
-<p>D. C. Montgomery, E. A. Peck, G. G. Vining, Introduction to Linear Regression Analysis, 4th ed., Hoboken: John Wiley, 2006.</p>
+<div id="erros" class="section level3">
+<h3>Erros</h3>
+<p>Ao escolher por uma das hipóteses, quais erros podemos cometer?</p>
+<p><strong>ERRO DO TIPO I</strong>: rejeitar a hipótese nula dada que ela é verdadeira.</p>
+<p><strong>ERRO DO TIPO II</strong>: aceitar a hipótese nula dado que ela é falsa.</p>
+<p>Podemos calcular as probabilidades de cada um destes errros:</p>
+<p><span class="math">\(\alpha\)</span>: probabilidade do erro do tipo I</p>
+<p><span class="math">\(\beta\)</span>: probabilidade do erro do tipo II</p>
+<p>A quantidade <span class="math">\(\alpha\)</span> também é conhecida como <em>nível de significância do teste</em>.</p>
 </div>
-<div id="modelos-lineares-generalizados" class="section level2">
-<h2>Modelos lineares generalizados</h2>
-<p>P. McCullagh, J. A. Nelder, Generalized Linear Models, 3rd ed., London: Chapman &amp; Hall, 1989.</p>
-<p>Livro do professor Gilberto. <a href="http://www.ime.usp.br/~giapaula/texto_2013.pdf">link</a></p>
+<div id="estatistica-do-teste" class="section level3">
+<h3>Estatística do teste</h3>
+<p>O procedimento usual de um teste de hipóteses consiste em encontrar um intervalo chamado de <em>Região crítica</em> (RC), tal que</p>
+<p><span class="math">\[
+\hat{p} \in RC \longrightarrow \text{rejeitamos } H_0,
+\]</span> em que <span class="math">\(\hat{p}\)</span> é uma estatimativa de <span class="math">\(p\)</span>.</p>
+<p>Para isso, precisamos definir a estatística do teste. Neste exemplo, essa estatística é dada por</p>
+<p><span class="math">\[
+\hat{p} = \frac{\sum_{i=1}^{n}X_i}{n},
+\]</span> de tal forma que</p>
+<p><span class="math">\[
+\hat{p} \sim N\left( p, \frac{p(1-p)}{n}  \right).
+\]</span></p>
 </div>
-<div id="analise-multivariada" class="section level2">
-<h2>Análise Multivariada</h2>
-<p>R. A. Johnson, D. W. Wichern, Applied Multivariate Statistical Analysis, 6th ed., New Jersey: Prentice Hall, 2007.</p>
-<p>K. V. Mardia, J. T. Kent, J. Bibby, Multivariate Analysis, London: Academic Press, 1979.</p>
-<p>B. Everitt, An R and S-Plus Companion to Multivariate Analysis, London: Springer, 2005.</p>
+<div id="construcao-da-regiao-critica-e-conclusao-do-teste" class="section level3">
+<h3>Construção da região crítica e conclusão do teste</h3>
+<p>Temos que</p>
+<p><span class="math">\[
+P\left(\hat{p} \in RC \hspace{2mm} | \hspace{2mm} H_o \text{ é verdadeira}\right) = \alpha
+\]</span><br />P( c  |  p = ) = ]</p>
+<p>Realizando a padronização normal, temos</p>
+<p><span class="math">\[
+P\left(Z \geq \frac{c - \frac{1}{12}}{0,0276} \hspace{2mm} | \hspace{2mm} p = \frac{1}{12}\right) = \alpha.
+\]</span></p>
+<p>Se fixarmos <span class="math">\(\alpha = 0.05\)</span>, temos que</p>
+<p><span class="math">\[
+\frac{c - \frac{1}{12}}{0,0276} = 1,645
+\]</span> e, portanto, <span class="math">\(c = 0,1287\)</span>.</p>
+<p>Assim,</p>
+<p><span class="math">\[
+RC = [12,87\%, 100\%].
+\]</span></p>
+<p>Dessa forma, se a estimativa <span class="math">\(\hat{p}\)</span> for maior que 12,87%, rejeitamos <span class="math">\(H_0\)</span> com um nível de significância de 5%.</p>
 </div>
-<div id="series-temporais" class="section level2">
-<h2>Séries temporais</h2>
-<p>P. A. Morettin, C. M. C. Toloi, Análise de Séries Temporais, 2ª ed., São Paulo: Edgard Blücher, 2006.</p>
-<p>C. Chatfield, The Analysis of Time Series: an Introduction, 6th ed., Boca Raton: Chapman &amp; Hall, 2004.</p>
 </div>
-<div id="analise-de-sobrevivencia" class="section level2">
-<h2>Análise de sobrevivência</h2>
-<p>E. A. Colosimo, S. R. Giolo, Análise de Sobrevivência Aplicada, São Paulo: Edgard Blücher, 2006.</p>
+<div id="poder-de-um-teste" class="section level2">
+<h2>Poder de um teste</h2>
+<p>Chamamos de <em>poder de um teste</em> a probabilidade de rejeitar <span class="math">\(H_0\)</span> dado que ela é falsa, isto é,</p>
+<p><span class="math">\[
+P\left(T(X_1, ..., X_n) \in RC \hspace{2mm} | \hspace{2mm} H_0 \text{ é falsa}\right) = 1 - \beta,
+\]</span></p>
+<p>em que <span class="math">\(T\)</span> é a estatística do teste e <span class="math">\(\beta\)</span> é o erro do tipo II.</p>
 </div>
-<div id="analise-bayesiana" class="section level2">
-<h2>Análise Bayesiana</h2>
-<p>A. O’Hagan, Bayesian Inference, London: Arnold, 1994.</p>
-<p>J. Albert, Bayesian Computation with R, New York: Springer, 2007.</p>
-<p>D. V. Lindley, Making Decisions, 2nd ed., London: John Wiley, 1988.</p>
-</div>
-<div id="big-data" class="section level2">
-<h2>Big data</h2>
-<p><a href="http://googleresearch.blogspot.com.br/" class="uri">http://googleresearch.blogspot.com.br/</a></p>
-<p><a href="https://blogs.aws.amazon.com/bigdata/" class="uri">https://blogs.aws.amazon.com/bigdata/</a></p>
-<p><a href="https://code.facebook.com/posts/" class="uri">https://code.facebook.com/posts/</a></p>
-</div>
-
 
 
 
@@ -163,8 +192,8 @@
 */
 
 var disqus_config = function () {
-this.page.url = 'http://curso-stat.github.io/posts/referencias'; // Replace PAGE_URL with your page's canonical URL variable
-this.page.identifier = 'STAT5893524ref'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+this.page.url = 'http://curso-stat.github.io/posts/aula00'; // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = 'STAT589352400'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
 };
 
 (function() { // DON'T EDIT BELOW THIS LINE
