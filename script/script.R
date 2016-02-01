@@ -42,13 +42,13 @@ ggplot(data = dados) +
   ylab("Preço")
 
 ggplot(data = dados) +
-  geom_histogram(aes(x = preco), binwidth = 5000, color = "black", fill = "white") +
+  geom_histogram(aes(x = log(preco)), binwidth = 0.5, color = "black", fill = "white") +
   labs(x = "Preço", y = "Frequência")
 
 
-# Modelo de regressão linear simples
+# Modelo de regressão linear 
 
-fit <- lm(preco ~ comprimento + motor + ni, data = dados) 
+fit <- lm(preco ~ comprimento + motor + ni, data = dados)
 
 fit
 summary(fit)
