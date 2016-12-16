@@ -1,0 +1,66 @@
+---
+output: pdf_document
+---
+
+\pagenumbering{gobble}
+
+\centering
+
+**Uma introdução à análise explanatória de dados e métodos estatísticos**
+
+**Verão 2017**
+
+**Prof. William Nilson de Amorim**
+
+\ \ 
+
+\ \
+
+
+\raggedright
+
+**Monitoria**
+
+As monitorias acontecerão duas vezes por semana, com datas a serem definidas.
+
+- Eduardo Edamatsu --- e-mail: eduardoedamatsu@gmail.com
+
+- Milene Farhat --- e-mail: milene.farhat@gmail.com
+
+
+**Site do curso**: curso-stat.github.io
+
+\ \ 
+
+**1. Programa resumido**
+
+- Análise explanatória de dados
+    - tipos de variáveis
+    - distribuição de frequências
+    - medidas resumo
+    - medidas de associação
+    - gráficos
+- Probabilidade
+    - introdução
+    - propriedades básicas
+    - teorema de Bayes
+    - variáveis aleatórias discretas
+    - variáveis aleatórias contínuas
+    - distribuição Bernoulli e Binomial
+    - disbribuição Normal
+- Inferência Estatística
+    - introdução
+    - amostragem
+    - estimação pontual
+    - estimação intervalar
+    - teste de hipóteses
+
+**2. Bibliografia**
+
+- *Estatística Básica*, 7ª edição. Wilton Bussab e Pedro Morettin. Editora Saraiva.
+
+- *Noções de Probabilidade e Estatística*, 7ª edição. Marcos Nascimento Magalhães e Antonio Carlos Pedroso de Lima. EDUSP.
+
+**3. Avaliação**
+
+Projeto apresentado em sala de aula.
