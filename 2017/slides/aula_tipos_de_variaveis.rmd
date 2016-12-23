@@ -1,0 +1,61 @@
+---
+title: "Aula 1 - Tipos de variáveis e medidas descritivas"
+author: "William Nilson de Amorim"
+date: "01/17"
+output: 
+  ioslides_presentation:
+    mathjax: "//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"
+    keep_md: true
+    self_contained: true
+---
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+library(pander)
+library(ggplot2)
+library(dplyr)
+library(magrittr)
+library(lubridate)
+library(vcd)
+panderOptions("table.style", "rmarkdown")
+```
+
+## Discussão
+
+O que é a Estatística? E para que serve?
+
+Quais são as etapas de uma análise estatística?
+
+Qual o primeiro passo de qualquer análise estatística?
+
+
+## Tipos de variáveis
+
+Em um estudo do Instituto do Coração (INCOR), foram coletadas, entre outras, as seguintes variáveis:
+
+1. Idade
+2. Sexo
+3. Tabagismo
+4. Consumo de álcool
+5. Fração de ejeção
+6. Frequência cardíaca
+
+## Tipos de variáveis
+
+Variáveis que, a partir de categorias bem definidas, representam uma qualidade ou um atributo são chamadas de **variáveis qualitativas** ou **categóricas**.
+
+Variáveis que, por meio de números, representam uma contagem ou uma mensuração são chamadas de **variáveis quantitativas** ou **numéricas**. Se esses números formarem um conjunto finito ou enumerável, a variável é chamada de **quantitativa discreta**. Se os números pertecerem a um intervalo de números reais, a variável é chamada de **quantitativa contínua**.
+
+## Discussão
+
+Modelos vs tipos de variáveis.
+
+- Dados binários (Logístico, Probito): variáveis dicotômicas.
+
+- Dados de contagem (Poisson, Binomial negativa): variáveis quantitativas discretas que representam uma contagem.
+
+- Dados longitudinais: variáveis medidas repetidas vezes ao longo do tempo.
+
+- Séries temporais: variáveis quantitativas medidas em grandes intervalos de tempo.
+
+- Dados de sobrevida: variáveis quantitativas contínuas não-negativas (tempo, por exemplo) sujeitas à censura (observação parcial da variável)7
+
