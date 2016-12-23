@@ -1,20 +1,17 @@
-# Aula 1 - Tipos de variáveis e medidas descritivas
+# Tipos de variáveis
 William Nilson de Amorim  
 01/17  
 
 
 
-## Discussão
+## Discussão {.build}
 
-O que é a Estatística? E para que serve?
-
-## Discussão
+O que é a Estatística? E para que serve? 
 
 Quais são as etapas de uma análise estatística?
 
-## Discussão
-
 Qual o primeiro passo de qualquer análise estatística?
+
 
 ## Tipos de variáveis
 
@@ -26,3 +23,24 @@ Em um estudo do Instituto do Coração (INCOR), foram coletadas, entre outras, a
 4. Consumo de álcool
 5. Fração de ejeção
 6. Frequência cardíaca
+
+## Tipos de variáveis
+
+Variáveis que, a partir de categorias bem definidas, representam uma qualidade ou um atributo são chamadas de **variáveis qualitativas** ou **categóricas**.
+
+Variáveis que, por meio de números, representam uma contagem ou uma mensuração são chamadas de **variáveis quantitativas** ou **numéricas**. Se esses números formarem um conjunto finito ou enumerável, a variável é chamada de **quantitativa discreta**. Se os números pertecerem a um intervalo de números reais, a variável é chamada de **quantitativa contínua**.
+
+## Discussão {.build}
+
+Modelos vs tipos de variáveis.
+
+- Dados binários (Logístico, Probito): variáveis dicotômicas.
+
+- Dados de contagem (Poisson, Binomial negativa): variáveis quantitativas discretas que representam uma contagem.
+
+- Dados longitudinais: variáveis medidas repetidas vezes ao longo do tempo.
+
+- Séries temporais: variáveis quantitativas medidas em grandes intervalos de tempo.
+
+- Dados de sobrevida: variáveis quantitativas contínuas não-negativas (tempo, por exemplo) sujeitas à censura (observação parcial da variável)7
+

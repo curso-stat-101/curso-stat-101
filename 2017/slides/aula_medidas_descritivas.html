@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Tipos de variáveis</title>
+  <title>Medidas resumo</title>
 
   <meta charset="utf-8">
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -20,7 +20,7 @@
     var SLIDE_CONFIG = {
       // Slide settings
       settings: {
-                title: 'Tipos de variáveis',
+                title: 'Medidas resumo',
                         useBuilds: true,
         usePrettify: true,
         enableSlideAreas: true,
@@ -97,44 +97,115 @@
           </hgroup>
   </slide>
 
-<slide class=''><hgroup><h2>Discussão</h2></hgroup><article  id="discussao" class="build">
-
-<p>O que é a Estatística? E para que serve?</p>
-
-<p>Quais são as etapas de uma análise estatística?</p>
-
-<p>Qual o primeiro passo de qualquer análise estatística?</p>
-
-</article></slide><slide class=''><hgroup><h2>Tipos de variáveis</h2></hgroup><article  id="tipos-de-variaveis">
-
-<p>Em um estudo do Instituto do Coração (INCOR), foram coletadas, entre outras, as seguintes variáveis:</p>
-
-<ol>
-<li>Idade</li>
-<li>Sexo</li>
-<li>Tabagismo</li>
-<li>Consumo de álcool</li>
-<li>Fração de ejeção</li>
-<li>Frequência cardíaca</li>
-</ol>
-
-</article></slide><slide class=''><hgroup><h2>Tipos de variáveis</h2></hgroup><article  id="tipos-de-variaveis-1">
-
-<p>Variáveis que, a partir de categorias bem definidas, representam uma qualidade ou um atributo são chamadas de <strong>variáveis qualitativas</strong> ou <strong>categóricas</strong>.</p>
-
-<p>Variáveis que, por meio de números, representam uma contagem ou uma mensuração são chamadas de <strong>variáveis quantitativas</strong> ou <strong>numéricas</strong>. Se esses números formarem um conjunto finito ou enumerável, a variável é chamada de <strong>quantitativa discreta</strong>. Se os números pertecerem a um intervalo de números reais, a variável é chamada de <strong>quantitativa contínua</strong>.</p>
-
-</article></slide><slide class=''><hgroup><h2>Discussão</h2></hgroup><article  id="discussao-1" class="build">
-
-<p>Modelos vs tipos de variáveis.</p>
+<slide class=''><hgroup><h2>Frequência e proporção</h2></hgroup><article  id="frequencia-e-proporcao" class="build">
 
 <ul>
-<li><p>Dados binários (Logístico, Probito): variáveis dicotômicas.</p></li>
-<li><p>Dados de contagem (Poisson, Binomial negativa): variáveis quantitativas discretas que representam uma contagem.</p></li>
-<li><p>Dados longitudinais: variáveis medidas repetidas vezes ao longo do tempo.</p></li>
-<li><p>Séries temporais: variáveis quantitativas medidas em grandes intervalos de tempo.</p></li>
-<li><p>Dados de sobrevida: variáveis quantitativas contínuas não-negativas (tempo, por exemplo) sujeitas à censura (observação parcial da variável)7</p></li>
-</ul></article></slide>
+<li><p>A <em>frequência absoluta</em> (\(n_i\)) representa o número de observações em uma determinada categoria ou valor da variável.</p></li>
+<li><p>A <strong>frequência relativa</strong> ou <strong>proporção</strong> é a razão entre a frequência absoluta e o total de observações (\(n\)).</p></li>
+<li><p>DISCUSSÃO: quando utilizar essas medidas?</p></li>
+</ul>
+
+</article></slide><slide class=''><hgroup><h2>Medidas de posição</h2></hgroup><article  id="medidas-de-posicao" class="build">
+
+<ul>
+<li>Média: soma das observações dividida pelo total de observações.</li>
+</ul>
+
+
+
+<p>\[
+\frac{\sum_{i=1}^{n}X_i}{n} = \frac{X_1 + X_2 + ... + X_n}{n}
+\]</p>
+
+<ul>
+<li><p>DISCUSSÃO</p>
+
+<ul>
+<li>Quando utilizar a média?</li>
+<li>Por que dividir por \(n\)?</li>
+<li>Qual cuidado devemos ter ao utilizar a média como medida resumo?</li>
+</ul></li>
+</ul>
+
+</article></slide><slide class=''><hgroup><h2>Medidas de posição</h2></hgroup><article  id="medidas-de-posicao-1" class="build">
+
+<ul>
+<li><p>Mediana: observação que ocupa a posição central dos dados ordenados.</p></li>
+<li><p>Exemplo 1: 3 7 10 5 2 1 1</p></li>
+<li><p>Exemplo 2: 15 3 2 0 9 17</p></li>
+<li><p>DISCUSSÃO: quando utilizar a mediana?</p></li>
+</ul>
+
+</article></slide><slide class=''><hgroup><h2>Medidas de posição</h2></hgroup><article  id="medidas-de-posicao-2" class="build">
+
+<ul>
+<li><p>Quantis: observação que deixa uma determinada proporção das observações abaixo dela quando o conjunto de dados está ordenado.</p></li>
+<li>Exemplo 1: o quantil 10 (\(q_10\)) deixa 10% das observações ordenadas abaixo de si.</li>
+<li><p>Exemplo 1: o quantil 80 (\(q_80\)) deixa 80% das observações ordenadas abaixo de si.</p></li>
+<li><p>Em geral, o quantil p (\(q_p\)) deixa p% das observações ordenas abaixo de si.</p></li>
+<li><p>Quartis:</p>
+
+<ul>
+<li>Primeiro quartil (Q1): quantil 25</li>
+<li>Segundo quartil (Q2): quantil 50 = mediana</li>
+<li>Terceiro quartil (Q3): quantil 75</li>
+<li>Quarto quartil (Q4): quantil 100 = máximo</li>
+</ul></li>
+</ul>
+
+</article></slide><slide class=''><hgroup><h2>Medidas de posição</h2></hgroup><article  id="medidas-de-posicao-3" class="build">
+
+<ul>
+<li><p>Moda: observação mais frequente do conjunto de observações.</p></li>
+<li><p>DISCUSSÃO: quando utilizar a moda?</p></li>
+<li><p>DISCUSSÃO: qual o problema de utilizarmos apenas medidas de posição para resumir um conjunto de dados?</p></li>
+</ul>
+
+</article></slide><slide class=''><hgroup><h2>Medidas de dispersão</h2></hgroup><article  id="medidas-de-dispersao">
+
+<ul>
+<li><p>Variância: desvio quadrático médio em torno da média.</p></li>
+<li><p>Construção da variância</p></li>
+</ul>
+
+<p>\[
+\frac{\sum_{i=1}^{n}(X_i - \bar{X})^2}{n}
+\]</p>
+
+</article></slide><slide class=''><hgroup><h2>Medidas de dispersão</h2></hgroup><article  id="medidas-de-dispersao-1">
+
+<ul>
+<li>Desvio-padrão: raiz quadrada da variância.</li>
+</ul>
+
+<p>\[
+\sqrt{\frac{\sum_{i=1}^{n}(X_i - \bar{X})^2}{n}}
+\]</p>
+
+<ul>
+<li>DISCUSSÃO: por que utilizar o desvio-padrão?</li>
+</ul>
+
+</article></slide><slide class=''><hgroup><h2>Medidas de associação</h2></hgroup><article  id="medidas-de-associacao">
+
+<ul>
+<li><p>DISCUSSÃO: o que é associação entre variáveis aleatórias?</p></li>
+<li><p>Associação entre variáveis categóricas: veremos no fim do curso.</p></li>
+<li><p>Associação entre variáveis quantitativas: coeficiente de correlação de Pearson.</p></li>
+<li><p>Outros coeficientes de correlação: Spearman, Kendall.</p></li>
+</ul>
+
+</article></slide><slide class=''><hgroup><h2>Medidas de associação</h2></hgroup><article  id="medidas-de-associacao-1">
+
+<ul>
+<li>Coeficiente de correlação de Pearson</li>
+</ul>
+
+
+
+<p>\[
+\frac{1}{n}\sum_{i=1}^{n}\left(\frac{X_i - \bar{X}}{DP(X)}\right) \left(\frac{Y_i - \bar{Y}}{DP(Y)}\right)
+\]</p></article></slide>
 
 
   <slide class="backdrop"></slide>

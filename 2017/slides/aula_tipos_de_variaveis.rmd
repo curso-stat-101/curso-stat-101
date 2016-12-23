@@ -1,5 +1,5 @@
 ---
-title: "Aula 1 - Tipos de variáveis e medidas descritivas"
+title: "Tipos de variáveis"
 author: "William Nilson de Amorim"
 date: "01/17"
 output: 
@@ -19,9 +19,9 @@ library(vcd)
 panderOptions("table.style", "rmarkdown")
 ```
 
-## Discussão
+## Discussão {.build}
 
-O que é a Estatística? E para que serve?
+O que é a Estatística? E para que serve? 
 
 Quais são as etapas de uma análise estatística?
 
@@ -45,7 +45,7 @@ Variáveis que, a partir de categorias bem definidas, representam uma qualidade 
 
 Variáveis que, por meio de números, representam uma contagem ou uma mensuração são chamadas de **variáveis quantitativas** ou **numéricas**. Se esses números formarem um conjunto finito ou enumerável, a variável é chamada de **quantitativa discreta**. Se os números pertecerem a um intervalo de números reais, a variável é chamada de **quantitativa contínua**.
 
-## Discussão
+## Discussão {.build}
 
 Modelos vs tipos de variáveis.
 
