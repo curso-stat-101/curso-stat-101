@@ -47,7 +47,7 @@ As monitorias acontecerão duas vezes por semana, com datas a serem definidas.
     - variáveis aleatórias discretas
     - variáveis aleatórias contínuas
     - distribuição Bernoulli e Binomial
-    - disbribuição Normal
+    - distribuição Normal
 - Inferência Estatística
     - introdução
     - amostragem

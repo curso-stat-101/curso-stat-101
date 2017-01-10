@@ -1,0 +1,46 @@
+---
+title: "Probabilidade"
+author: "William Nilson de Amorim"
+date: "Verão 2017"
+output: 
+  ioslides_presentation:
+    mathjax: "//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"
+    self_contained: true
+---
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+library(pander)
+library(ggplot2)
+library(dplyr)
+library(magrittr)
+library(lubridate)
+library(vcd)
+panderOptions("table.style", "rmarkdown")
+```
+
+## Conceitos básicos {.build}
+
+<b>Experimento aleatório</b>
+
+<b>Espaço amostral</b> ou <b>população</b> $(\Omega)$
+
+## Propriedades importantes
+
+1. A probabilidade é um número real no intervalo real [0,1].
+
+2. $P(\Omega) = 1$
+
+## Exemplos
+
+Lançamento de uma moeda
+
+Lançamento de um dado
+
+Lançamento de dois dados
+
+## Problema das portas {.flexbox .vcenter}
+
+<div class="centered">
+![](portas.png)
+</div>
+

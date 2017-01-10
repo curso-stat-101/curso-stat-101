@@ -28,10 +28,15 @@ output: pdf_document
 * Apresentação de até 25 minutos sobre um dos seguintes projetos:
 
     * Análise da associação entre função motora e força muscular em pacientes com distrofia muscular de Duchenne: acompanhamento de 4 anos (regressão Beta);
+    
     * Avaliação do Findrisk como instrumento de detecção de diabetes de tipo 2 em um estudo transversal (regressão logística);
+    
     * Análise do perfil sócio demográfico de mulheres usuárias de álcool e outras drogas atendidas no período entre 2002 e 2010 no Centro de Referência em Álcool, Tabaco e Outras Drogas (CRATOD) da cidade de São Paulo (análise de dados categorizados);
+    
     * Avaliação da diferença de gêneros na duração e dispersão do complexo QRS em relação à mortalidade em pacientes com insuficiência cardíaca (análise de sobrevivência --- modelo de Cox);
+    
     * Análise da curvatura da coluna vertebral de mães em função do transporte de seus filhos (regressão normal --- equações de estimação generalizadas); e
+    
     * Previsão de volume de compras de hortaliças pelo varejo paulista (séries temporais).
 
 \vspace{3mm}
@@ -42,11 +47,11 @@ output: pdf_document
 
 * A apresentação deve conter os tópicos abaixo:
 
-    * contextualizar o problema;
-    * enumerar os objetivos;
-    * apresentar as principais variáveis;
-    * discutir a metodologia escolhida; e
-    * citar as conclusões.
+    * contextualização do problema;
+    * enumeração dos objetivos;
+    * apresentação das principais variáveis;
+    * discussão da metodologia escolhida; e
+    * conclusões.
 
 \vspace{3mm}
 
@@ -58,7 +63,7 @@ output: pdf_document
 
 \vspace{3mm}
 
-* Nota: avaliação dos tópicos requesitados.
+* Nota: avaliação dos tópicos requisitados.
 
 
 

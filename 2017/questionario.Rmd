@@ -22,7 +22,7 @@ output: pdf_document
 
 \raggedright
 
-\vspace{0.8cm}
+\vspace{0.6cm}
 
 **Sexo**: ( ) M \hspace{0.5mm} ( ) F
 
@@ -98,7 +98,7 @@ output: pdf_document
 
 **Diretor de cinema**: _____________________________
 
-\vspace{3mm}
+\vspace{2mm}
 
 **Filme**: _____________________________
 
