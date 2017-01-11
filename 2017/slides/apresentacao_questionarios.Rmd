@@ -1,0 +1,97 @@
+---
+title: "Questionários"
+author: "William Amorim"
+date: "26 de agosto de 2016"
+output: ioslides_presentation
+---
+
+## Criando o questionário
+
+- Estabelecer o objetivo.
+
+- Criar as perguntas.
+
+- Encontrar maneiras de conseguir respostas verdadeiras e precisas.
+
+- Definir como, onde e quando o questionário será aplicado.
+
+## Objetivo
+
+- Questionário *se e somente se*.
+
+- Os itens do questionário devem ser **suficientes** para atender ao objetivo.
+
+- Preferencialmente, mantenha no questionário apenas itens **necessários** para responder as perguntas de interesse.
+
+## Perguntas
+
+- Dê preferência a perguntas estruturadas (ou fechadas).
+
+```{r}
+# Perguntas abertas são difíceis de ser analisadas.
+```
+
+- As opções de uma pergunta devem abranger todas as possibilidades. Na dúvida, utilize opções como "Outros" ou "Nenhuma das alternativas".
+
+- Crie uma ordem lógica para as perguntas.
+
+- Se possível, deixe as perguntas mais complicadas ou pessoais para o final.
+
+## Veracidade e precisão
+
+- Mantenha os questionários anônimos.
+
+- Clareza: evite duplas negativas, perguntas muito longas
+
+- Se preciso, utilize perguntas redundantes.
+
+```{r}
+# Você se sente seguro com a PM no campus? (S/N)
+
+# Na sua opinião, a polícia no campus traz segurança? (S/N)
+
+# Na sua opinião, qual o nível de segurança que a PM 
+# traz para o campus? (Alto/Médio/Baixo/Nenhum)
+```
+
+## Aplicação
+
+- Analise se a aplicação deverá ser feita em diferentes horários.
+
+```{r}
+# Se a sua população de interesse for os alunos do IME, você deve
+# considerar coletar amostras de manhã e à noite.
+```
+
+- Avalie se no local escolhido para a aplicação é possível coletar uma amostra representativa da população de interesse.
+
+- Se possível, faça um teste do questionário e o revise antes de aplicá-lo de fato.
+
+## Aplicação
+
+- Se apresente e explique o objetivo da pesquisa.
+
+- Crie um critério para selecionar as pessoas mais ao acaso possível.
+
+- Estabeleça um critério para lidar com dados faltantes.
+
+## Aplicação: online
+
+Vantagens
+
+- Menor dificuldade de aplicação.
+
+- Possibilidade de mais respondentes.
+
+- Maior facilidade para organizar os dados.
+
+Desvantagens
+
+- Não é possível controlar quem está respondendo.
+
+- Respostas possivelmente mais imprecisas. 
+
+
+
+
+
