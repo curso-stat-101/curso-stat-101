@@ -1,6 +1,5 @@
 # Aula 3 - Gráficos
 William Nilson de Amorim  
-06/01/16  
 
 
 
@@ -66,7 +65,7 @@ Dados da temporada de Baseball de 1986, EUA (Baseball)
 
 ## Boxplots
 
-Dados da temporada de Baseball de 1986 (EUA)
+Dados da temporada de Baseball de 1986, EUA
 
 ![](aula_graficos_files/figure-html/unnamed-chunk-10-1.png)<!-- -->
 

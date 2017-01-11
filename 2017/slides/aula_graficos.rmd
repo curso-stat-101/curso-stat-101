@@ -1,7 +1,6 @@
 ---
 title: "Aula 3 - Gráficos"
 author: "William Nilson de Amorim"
-date: "06/01/16"
 output: 
   ioslides_presentation:
     mathjax: "//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"
