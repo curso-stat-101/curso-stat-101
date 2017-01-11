@@ -21,9 +21,21 @@ library(stringr)
 
 dados <- read.xlsx(xlsxFile = "2017/dados_questionario.xlsx")
 
-
 ### Sorteio dos grupos
 
 urna <- 1:10
 
 sample(x = urna, size = 10, replace = F)
+
+### Análise descritiva
+
+table(dados$sexo)
+dados$sexo %>% table
+
+mean(x = dados$idade, na.rm = TRUE)
+mean(dados$idade, na.rm = TRUE)
+
+var(x = dados$idade, na.rm = TRUE)
+sd(x = dados$idade, na.rm = T)
+
+dados$idade %>% var(na.rm=T) %>% sqrt
