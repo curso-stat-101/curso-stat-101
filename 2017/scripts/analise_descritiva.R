@@ -34,6 +34,18 @@ sample(x = urna, size = 10, replace = F)
 table(dados$sexo)
 dados$sexo %>% table
 
+plot()
+barplot()
+boxplot()
+pie()
+hist()
+
+barplot(table(dados$sexo), col = "white")
+
+ggplot(data = dados) +
+  geom_bar(aes(x = sexo, fill = area), color = "black", width = 0.3,
+           position = "dodge")
+
 # Idade
 
 mean(x = dados$idade, na.rm = TRUE)
@@ -44,15 +56,65 @@ sd(x = dados$idade, na.rm = T)
 
 dados$idade %>% var(na.rm=T) %>% sqrt
 
+median(x = dados$idade, na.rm = T)
 
+idade_c <- ifelse(dados$idade <= 25, "0", ifelse(dados$idade <= 40, "1", "2"))
 
+dados$idade_c <- idade_c
 
+ggplot(data = dados)+
+  geom_boxplot(aes(x = idade_c, y = peso))
 
+cbind(dados$idade,idade_c)
 
+table(idade_c)
+table(dados$idade)
 
+min(dados$idade, na.rm = T)
+max(dados$idade, na.rm = T)
+quantile(x = dados$idade, probs = c(0.10, 0.25, 0.50, 0.75), na.rm = T)
 
+# Idade e peso
 
+cor(x = dados$idade, y = dados$peso, use = "complete.obs")
+cor(x = dados$idade, y = dados$peso, use = "complete.obs",
+    method = "kendall")
+cor(x = dados$idade, y = dados$peso, use = "complete.obs",
+    method = "spearman")
 
+plot(x = dados$idade, y = dados$peso)
+
+hist(dados$peso)
+
+ggplot(data = dados) +
+  geom_histogram(aes(x = peso), fill = "white", color = "black", binwidth = 10)
+
+# Peso e atividade física
+
+cor(x = dados$atividade_fisica, y = dados$peso, use = "complete.obs")
+cor(x = dados$atividade_fisica, y = dados$peso, use = "complete.obs",
+    method = "kendall")
+cor(x = dados$atividade_fisica, y = dados$peso, use = "complete.obs",
+    method = "spearman")
+
+plot(x = dados$atividade_fisica, y = dados$peso)
+
+ggplot(data = dados) +
+  geom_point(aes(x = idade, y = peso))
+
+dados2 <- dados[-3,]
+
+cor(x = dados2$atividade_fisica, y = dados2$peso, use = "complete.obs")
+cor(x = dados2$atividade_fisica, y = dados2$peso, use = "complete.obs",
+    method = "kendall")
+cor(x = dados2$atividade_fisica, y = dados2$peso, use = "complete.obs",
+    method = "spearman")
+
+plot(x = dados2$atividade_fisica, y = dados2$peso)
+
+table(dados$sexo, dados$area)
+
+a
 
 
 
