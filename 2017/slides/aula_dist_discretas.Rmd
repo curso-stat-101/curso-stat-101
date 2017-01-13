@@ -1,0 +1,132 @@
+---
+title: "Probabilidade"
+author: "William Nilson de Amorim"
+date: "Verão 2017"
+output: 
+  ioslides_presentation:
+    mathjax: "//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"
+    self_contained: true
+---
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+library(pander)
+library(ggplot2)
+library(dplyr)
+library(magrittr)
+library(lubridate)
+library(vcd)
+panderOptions("table.style", "rmarkdown")
+```
+
+## Disbribuição Uniforme
+
+A variável aleatória $X$, assumindo os valores no conjunto $\{a, a+1, ..., b-1, b\}$, tem distribuição uniforme se
+
+\[
+p_X(x) = P(X = x) = \frac{1}{n}, \quad x = a, a+1, ..., b-1, b.
+\]
+
+Temos que
+
+\[
+E(X) = \frac{a + b}{n}
+\]
+
+e 
+
+\[
+VAR(X) = \frac{(b - a + 1)^2 - 1}{12}.
+\]
+
+## Disbribuição Bernoulli
+
+A variável aleatória $X$ que assume apenas os valores 0 ou 1, com função de probabilidade dada por 
+
+\[p(1) = p\]
+
+e 
+
+\[p(0) = 1 - p,\] 
+
+é chamada v. a. de Bernoulli. Aqui, consideramos $0 < p < 1$.
+
+## Disbribuição Bernoulli
+
+Temos que 
+
+\[
+E(X) = p
+\]
+
+e 
+
+\[
+VAR(X) = p(1 - p).
+\]
+
+
+## Disbribuição Binomial
+
+
+Sejam $X_1, ..., X_n$ $n$ variáveis aleatórias independentes com distribuição $Bernoulli(p)$. A variável aleatória $Y$ definida por
+
+\[
+Y = \sum_{i=1}^{n} X_i
+\]
+
+tem distribuição Binomial. Simbolicamente, escrevemos $Y \sim Binomial(n, p)$.
+
+## Disbribuição Binomial
+
+A função de probabilidade de $Y$ é dada por
+
+\[
+p(x) = P(X = x) = \binom{n}{p} p^x (1-p)^{n-x}.
+\]
+
+Temos que 
+
+\[
+E(X) = np
+\]
+
+e 
+
+\[
+VAR(X) = np(1 - p).
+\]
+
+
+## Disbribuição Poisson
+
+
+Dizemos que a v. a. $X$ tem distribuição Poisson com parâmetro $\lambda > 0$ se
+
+\[
+P(X = x) = \frac{\exp(- \lambda)\lambda^x}{x!}, \quad x = 0, 1, 2, ...
+\]
+
+Temos que $E(X) = VAR(X) = \lambda$.
+
+
+## Disbribuição Binomial negativa
+
+Dizemos que a v. a. $X$ tem distribuição Binomial negativa com parâmetros $r>0$ e $p \in (0,1)$ se
+
+\[
+P(X = x) = \binom{x + r - 1}{x} (1 - p)^r p^k, \quad x = 0, 1, 2, ...
+\]
+
+Temos que 
+
+\[
+E(X) = \frac{pr}{1-p}
+\]
+
+e 
+
+\[
+VAR(X) = \frac{pr}{(1-p)^2}.
+\]
+
+
