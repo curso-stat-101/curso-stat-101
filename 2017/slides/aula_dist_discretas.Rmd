@@ -1,5 +1,5 @@
 ---
-title: "Probabilidade"
+title: "Distribuições discretas"
 author: "William Nilson de Amorim"
 date: "Verão 2017"
 output: 
