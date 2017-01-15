@@ -40,11 +40,11 @@ boxplot()
 pie()
 hist()
 
-barplot(table(dados$sexo), col = "white")
+barplot(table(dados$sexo), col = "white")  # Gráfico de barras
 
 ggplot(data = dados) +
   geom_bar(aes(x = sexo, fill = area), color = "black", width = 0.3,
-           position = "dodge")
+           position = "dodge")   # Gráfico de barras ggplot
 
 # Idade
 
@@ -58,21 +58,25 @@ dados$idade %>% var(na.rm=T) %>% sqrt
 
 median(x = dados$idade, na.rm = T)
 
+min(dados$idade, na.rm = T)
+max(dados$idade, na.rm = T)
+quantile(x = dados$idade, probs = c(0.10, 0.25, 0.50, 0.75), na.rm = T)
+
+
+# categorizando a variável idade (ver função cut())
+
 idade_c <- ifelse(dados$idade <= 25, "0", ifelse(dados$idade <= 40, "1", "2"))
 
 dados$idade_c <- idade_c
 
 ggplot(data = dados)+
-  geom_boxplot(aes(x = idade_c, y = peso))
+  geom_boxplot(aes(x = idade_c, y = peso))  # Boxplot ggplot
 
 cbind(dados$idade,idade_c)
 
 table(idade_c)
 table(dados$idade)
 
-min(dados$idade, na.rm = T)
-max(dados$idade, na.rm = T)
-quantile(x = dados$idade, probs = c(0.10, 0.25, 0.50, 0.75), na.rm = T)
 
 # Idade e peso
 
@@ -82,11 +86,11 @@ cor(x = dados$idade, y = dados$peso, use = "complete.obs",
 cor(x = dados$idade, y = dados$peso, use = "complete.obs",
     method = "spearman")
 
-plot(x = dados$idade, y = dados$peso)
+plot(x = dados$idade, y = dados$peso)   # Gráfico de dispesão
 
-hist(dados$peso)
+hist(dados$peso)            # Histograma
 
-ggplot(data = dados) +
+ggplot(data = dados) +          # Histograma ggplot
   geom_histogram(aes(x = peso), fill = "white", color = "black", binwidth = 10)
 
 # Peso e atividade física
@@ -100,9 +104,9 @@ cor(x = dados$atividade_fisica, y = dados$peso, use = "complete.obs",
 plot(x = dados$atividade_fisica, y = dados$peso)
 
 ggplot(data = dados) +
-  geom_point(aes(x = idade, y = peso))
+  geom_point(aes(x = idade, y = peso))   # Gráfico de dispesão ggplot
 
-dados2 <- dados[-3,]
+dados2 <- dados[-3,]   # Retirando a observação com atividade física = 150
 
 cor(x = dados2$atividade_fisica, y = dados2$peso, use = "complete.obs")
 cor(x = dados2$atividade_fisica, y = dados2$peso, use = "complete.obs",
@@ -113,25 +117,6 @@ cor(x = dados2$atividade_fisica, y = dados2$peso, use = "complete.obs",
 plot(x = dados2$atividade_fisica, y = dados2$peso)
 
 table(dados$sexo, dados$area)
-
-a
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 # Tabela de medidas descritivas
