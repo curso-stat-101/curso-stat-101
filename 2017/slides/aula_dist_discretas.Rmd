@@ -99,6 +99,17 @@ VAR(X) = np(1 - p).
 
 ## Disbribuição Poisson
 
+- Expressa uma contagem de eventos.
+
+- Intervalo fixo de tempo e/ou espaço.
+
+- Taxa constante.
+
+- A ocorrência independe do tempo desde que o último evento ocorreu.
+
+- Dois eventos não ocorrem ao mesmo tempo.
+
+## Disbribuição Poisson
 
 Dizemos que a v. a. $X$ tem distribuição Poisson com parâmetro $\lambda > 0$ se
 
@@ -108,6 +119,18 @@ P(X = x) = \frac{\exp(- \lambda)\lambda^x}{x!}, \quad x = 0, 1, 2, ...
 
 Temos que $E(X) = VAR(X) = \lambda$.
 
+A distribuição de Poisson é um caso limite da distribuição Binomial.
+
+
+## Disbribuição Binomial negativa
+
+Expressa o número de sucessos até o $r$-ésimo fracasso.
+
+- Número de dias que uma máquina trabalha até quebrar ($r=1$).
+
+- Número de chances de gol que um atacante tem até o terceiro gol ($r=3$).
+
+É utilizada como uma alternativa para a distribuição de Poisson quando há sobredispersão, isto é, a variância é maior do que a média.
 
 ## Disbribuição Binomial negativa
 
