@@ -171,7 +171,3 @@ data.frame(
     as.matrix %>% 
     as.numeric
 )
-
-
-
-
