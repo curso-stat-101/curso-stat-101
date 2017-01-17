@@ -81,7 +81,7 @@ tem distribuição Binomial. Simbolicamente, escrevemos $Y \sim Binomial(n, p)$.
 A função de probabilidade de $Y$ é dada por
 
 \[
-p(x) = P(X = x) = \binom{n}{p} p^x (1-p)^{n-x}.
+p_Y(y) = P(Y = y) = \binom{n}{y} p^y (1-p)^{n-y}.
 \]
 
 Temos que 

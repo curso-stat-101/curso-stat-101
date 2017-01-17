@@ -158,7 +158,7 @@ Y = \sum_{i=1}^{n} X_i
 <p>A função de probabilidade de \(Y\) é dada por</p>
 
 <p>\[
-p(x) = P(X = x) = \binom{n}{p} p^x (1-p)^{n-x}.
+p_Y(y) = P(Y = y) = \binom{n}{y} p^y (1-p)^{n-y}.
 \]</p>
 
 <p>Temos que</p>
@@ -176,11 +176,14 @@ VAR(X) = np(1 - p).
 </article></slide><slide class=''><hgroup><h2>Disbribuição Poisson</h2></hgroup><article  id="disbribuicao-poisson">
 
 <ul>
-<li><p>Expressa uma contagem</p></li>
-<li><p>Intervalo fixo de tempo e/ou espaço</p></li>
-<li><p>Taxa conhecida</p></li>
-<li><p>A ocorrência independe do tempo desde que o último evento ocorreu</p></li>
+<li><p>Expressa uma contagem de eventos.</p></li>
+<li><p>Intervalo fixo de tempo e/ou espaço.</p></li>
+<li><p>Taxa constante.</p></li>
+<li><p>A ocorrência independe do tempo desde que o último evento ocorreu.</p></li>
+<li><p>Dois eventos não ocorrem ao mesmo tempo.</p></li>
 </ul>
+
+</article></slide><slide class=''><hgroup><h2>Disbribuição Poisson</h2></hgroup><article  id="disbribuicao-poisson-1">
 
 <p>Dizemos que a v. a. \(X\) tem distribuição Poisson com parâmetro \(\lambda &gt; 0\) se</p>
 
@@ -190,7 +193,20 @@ P(X = x) = \frac{\exp(- \lambda)\lambda^x}{x!}, \quad x = 0, 1, 2, ...
 
 <p>Temos que \(E(X) = VAR(X) = \lambda\).</p>
 
+<p>A distribuição de Poisson é um caso limite da distribuição Binomial.</p>
+
 </article></slide><slide class=''><hgroup><h2>Disbribuição Binomial negativa</h2></hgroup><article  id="disbribuicao-binomial-negativa">
+
+<p>Expressa o número de sucessos até o \(r\)-ésimo fracasso.</p>
+
+<ul>
+<li><p>Número de dias que uma máquina trabalha até quebrar (\(r=1\)).</p></li>
+<li><p>Número de chances de gol que um atacante tem até o terceiro gol (\(r=3\)).</p></li>
+</ul>
+
+<p>É utilizada como uma alternativa para a distribuição de Poisson quando há sobredispersão, isto é, a variância é maior do que a média.</p>
+
+</article></slide><slide class=''><hgroup><h2>Disbribuição Binomial negativa</h2></hgroup><article  id="disbribuicao-binomial-negativa-1">
 
 <p>Dizemos que a v. a. \(X\) tem distribuição Binomial negativa com parâmetros \(r&gt;0\) e \(p \in (0,1)\) se</p>
 
