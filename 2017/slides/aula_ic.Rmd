@@ -1,0 +1,42 @@
+---
+title: "Intervalos de confiança"
+author: "William Nilson de Amorim"
+date: "Verão 2017"
+output: 
+  ioslides_presentation:
+    mathjax: "//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"
+    self_contained: true
+---
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+library(pander)
+library(ggplot2)
+library(dplyr)
+library(magrittr)
+library(lubridate)
+library(vcd)
+panderOptions("table.style", "rmarkdown")
+```
+
+## Interpretação
+
+- O intervalo é aleatório, o parâmetro é fixo.
+
+- Cada amostra gera um intervalo diferente.
+
+- Antes de ser gerado, podemos dizer que a probabilidade de um intervalo de confiança (com coeficiente de confiança igual a 95%) conter o verdadeiro valor do parâmetro é de 95%.
+
+- Depois de gerado, um intervalo de confiança não é mais aleatório. Ele contém ou não o verdadeiro valor do parâmetro. Neste caso, o coeficiente de confiança deverá ser interpretado como a precisão do procedimento, não do intervalo.
+
+
+## Exemplo 1
+
+Uma pesquisa apontou o candidato A com 48% das intenções de voto, com dois pontos percentuais para cima ou para baixo. O coeficiente de confiança considerado foi de 95%.
+
+## Exemplo 2
+
+Uma máquina enche pacotes de café de 500g. Uma amostra de 100 pacotes foi coletada e verificou-se que o peso médio desses pacotes é de 510g. Além disso, encontrou-se o seguinte intervalo de confiança para o peso médio: (502, 518).
+
+## Exemplo 3
+
+O Silvio Santos voltará a colocar o Chaves na programação do SBT se pelo menos 40% dos seus telespectadores for a favor. Após uma pesquisa de opinião, verificou-se que 35% dos telespectadores entrevistados eram a favor, com IC = (0,30; 0,40).
