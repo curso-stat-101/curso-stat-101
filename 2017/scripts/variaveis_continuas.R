@@ -17,3 +17,7 @@ X <- rexp(100)
 ### Gama
 
 X <- rgamma(100, shape = 2, rate = 1)
+
+### Beta
+
+rbeta(n = 100, shape1 = 1, shape2 = 1)
