@@ -8,13 +8,13 @@ library(ggplot2)
 
 ### Bernoulli
 
-X <- rbinom(n = 100, size = 1, prob = 0.7)
+X <- rbinom(n = 10, size = 1, prob = 0.7)
 X
 
 mean(X)
 var(X)
 
-0.3*(1-0.3) # variância
+0.7*(1-0.7) # variância
 
 X %>% 
   data.frame(X = .) %>% 
@@ -52,7 +52,7 @@ dados %>%
 
 ### Poisson
 
-Z <- rpois(n = 1000, lambda = 3)
+Z <- rpois(n = 1000, lambda = 100)
 
 ggplot(data = data.frame(Z = Z)) +
   geom_histogram(aes(x = Z), fill = "white", color = "black", binwidth = 1)
